@@ -1,0 +1,7 @@
+_main: CODE, 32312 0 70
+_LCD_writeChar: CODE, 32254 0 58
+__initialization: CODE, 32200 0 4
+_LCD_init: CODE, 32460 0 308
+_Delay100ms: CODE, 32210 0 44
+_place_lcd_cursor: CODE, 32382 0 78
+Total: 562
