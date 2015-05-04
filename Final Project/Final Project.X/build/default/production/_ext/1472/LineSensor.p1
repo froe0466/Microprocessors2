@@ -1,5 +1,15 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"13 ../LineSensor.c
+"13912 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+[v _ADCON2 `Vuc ~T0 @X0 0 e@4032 ]
+"14049
+[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
+"18167
+[v _ADON `Vb ~T0 @X0 0 e@32272 ]
+"18817
+[v _GODONE `Vb ~T0 @X0 0 e@32273 ]
+"14179
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
+"29 ../LineSensor.c
 [c E8056 0 1 .. ]
 [n E8056 _BOOL FALSE TRUE  ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
@@ -8282,9 +8292,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x EBTR3=OFF ]
 "72
 [p x EBTRB=OFF ]
-[; ;LineSensor.h: 16: void lineSensor_init(void);
-[; ;LineSensor.h: 17: bool lineSensor_isWhiteLine1(void);
-[; ;LineSensor.h: 18: bool lineSensor_isWhiteLine2(void);
+[; ;LineSensor.h: 18: void lineSensor_init(void);
+[; ;LineSensor.h: 19: int lineSensor_read(unsigned int Channel);
+[; ;LineSensor.h: 20: bool lineSensor_isWhiteLine1(void);
+[; ;LineSensor.h: 21: bool lineSensor_isWhiteLine2(void);
 "5 ../LineSensor.c
 [v _lineSensor_init `(v ~T0 @X0 1 ef ]
 "6
@@ -8293,47 +8304,105 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LineSensor.c: 6: {
 [e :U _lineSensor_init ]
 [f ]
+[; ;LineSensor.c: 7: ADCON2=0b10001010;
+"7
+[e = _ADCON2 -> -> 138 `i `uc ]
 [; ;LineSensor.c: 9: }
 "9
 [e :UE 1178 ]
 }
 "11
-[v _lineSensor_isWhiteLine1 `(uc ~T0 @X0 1 ef ]
+[v _lineSensor_read `(i ~T0 @X0 1 ef1`ui ]
 "12
 {
-[; ;LineSensor.c: 11: bool lineSensor_isWhiteLine1()
+[; ;LineSensor.c: 11: int lineSensor_read(unsigned int Channel)
 [; ;LineSensor.c: 12: {
-[e :U _lineSensor_isWhiteLine1 ]
+[e :U _lineSensor_read ]
+"11
+[v _Channel `ui ~T0 @X0 1 r1 ]
+"12
 [f ]
+[; ;LineSensor.c: 13: ADCON0=0x00;
 "13
-[v _isWhiteLine `uc ~T0 @X0 1 a ]
-[; ;LineSensor.c: 13: bool isWhiteLine = FALSE;
-[e = _isWhiteLine -> . `E8056 0 `uc ]
-[; ;LineSensor.c: 15: return isWhiteLine;
-"15
-[e ) _isWhiteLine ]
-[e $UE 1179  ]
-[; ;LineSensor.c: 16: }
+[e = _ADCON0 -> -> 0 `i `uc ]
+[; ;LineSensor.c: 14: ADCON0=(Channel<<2);
+"14
+[e = _ADCON0 -> << _Channel -> 2 `i `uc ]
+[; ;LineSensor.c: 16: ADON=1;
 "16
+[e = _ADON -> -> 1 `i `b ]
+[; ;LineSensor.c: 18: GODONE=1;
+"18
+[e = _GODONE -> -> 1 `i `b ]
+[; ;LineSensor.c: 20: while(GODONE);
+"20
+[e $U 1180  ]
+[e :U 1181 ]
+[e :U 1180 ]
+[e $ _GODONE 1181  ]
+[e :U 1182 ]
+[; ;LineSensor.c: 22: ADON=0;
+"22
+[e = _ADON -> -> 0 `i `b ]
+[; ;LineSensor.c: 24: return ADRESL;
+"24
+[e ) -> _ADRESL `i ]
+[e $UE 1179  ]
+[; ;LineSensor.c: 25: }
+"25
 [e :UE 1179 ]
 }
-"18
-[v _lineSensor_isWhiteLine2 `(uc ~T0 @X0 1 ef ]
-"19
+"27
+[v _lineSensor_isWhiteLine1 `(uc ~T0 @X0 1 ef ]
+"28
 {
-[; ;LineSensor.c: 18: bool lineSensor_isWhiteLine2()
-[; ;LineSensor.c: 19: {
+[; ;LineSensor.c: 27: bool lineSensor_isWhiteLine1()
+[; ;LineSensor.c: 28: {
+[e :U _lineSensor_isWhiteLine1 ]
+[f ]
+"29
+[v _isWhiteLine `uc ~T0 @X0 1 a ]
+[; ;LineSensor.c: 29: bool isWhiteLine = FALSE;
+[e = _isWhiteLine -> . `E8056 0 `uc ]
+[; ;LineSensor.c: 31: if (lineSensor_read(0) < 65) {isWhiteLine = TRUE;}
+"31
+[e $ ! < ( _lineSensor_read (1 -> -> 0 `i `ui -> 65 `i 1184  ]
+{
+[e = _isWhiteLine -> . `E8056 1 `uc ]
+}
+[e :U 1184 ]
+[; ;LineSensor.c: 33: return isWhiteLine;
+"33
+[e ) _isWhiteLine ]
+[e $UE 1183  ]
+[; ;LineSensor.c: 34: }
+"34
+[e :UE 1183 ]
+}
+"36
+[v _lineSensor_isWhiteLine2 `(uc ~T0 @X0 1 ef ]
+"37
+{
+[; ;LineSensor.c: 36: bool lineSensor_isWhiteLine2()
+[; ;LineSensor.c: 37: {
 [e :U _lineSensor_isWhiteLine2 ]
 [f ]
-"20
+"38
 [v _isWhiteLine `uc ~T0 @X0 1 a ]
-[; ;LineSensor.c: 20: bool isWhiteLine = FALSE;
+[; ;LineSensor.c: 38: bool isWhiteLine = FALSE;
 [e = _isWhiteLine -> . `E8056 0 `uc ]
-[; ;LineSensor.c: 22: return isWhiteLine;
-"22
+[; ;LineSensor.c: 40: if (lineSensor_read(1) < 65) {isWhiteLine = TRUE;}
+"40
+[e $ ! < ( _lineSensor_read (1 -> -> 1 `i `ui -> 65 `i 1186  ]
+{
+[e = _isWhiteLine -> . `E8056 1 `uc ]
+}
+[e :U 1186 ]
+[; ;LineSensor.c: 42: return isWhiteLine;
+"42
 [e ) _isWhiteLine ]
-[e $UE 1180  ]
-[; ;LineSensor.c: 23: }
-"23
-[e :UE 1180 ]
+[e $UE 1185  ]
+[; ;LineSensor.c: 43: }
+"43
+[e :UE 1185 ]
 }

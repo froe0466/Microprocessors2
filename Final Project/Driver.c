@@ -12,11 +12,12 @@
 #include "LCD.h"
 #include "DCMotor.h"
 #include "i2c.h"
+#include "LineSensor.h"
 
 void main(void){
 
     /*NOTE:: You need to edit all of the Port Init functions to make sure that they do not overwrite each other!!*/
-  /*
+  
     EPWM_Port_Init();
 
     //ECCP1 Init Sequence
@@ -36,8 +37,10 @@ void main(void){
     //LCD Init Sequence
     LCD_init(); //Initialize LCD
     place_lcd_cursor(0,0);
-    LCD_write("Start");
-*/
+    LCD_writeChar('h');
+
+
+ /*
     //i2c Initialization
     i2c_Port_Init();
     i2c_Init();
@@ -48,4 +51,28 @@ void main(void){
       i2c_Command(0xE0,0x00,0x51);
       i2c_Read(0xE0,0x02);
     }
+*/
+
+    lineSensor_init();
+
+    while(1)
+    {
+        //Read Line Sensor
+        place_lcd_cursor(0,1);
+
+        if(lineSensor_isWhiteLine1())
+        {
+            LCD_writeChar('T');
+        }
+        else
+        {
+            LCD_writeChar('F');
+        }
+   
+        __delay_ms(50);
+
+
+    }
+
+
 }

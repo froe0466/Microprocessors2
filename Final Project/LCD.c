@@ -114,6 +114,13 @@ void LCD_writeChar(unsigned char data)
     LATCbits.LC3 = 0;
 }
 
+void LCD_convertWrite(unsigned char data)
+{
+    LCD_writeChar((data / 100) + 0x30); //this is the routine for the first decimal place
+    LCD_writeChar(((data % 100) / 10) + 0x30); //this is the routine for the second decimal place
+    LCD_writeChar(((data % 100) % 10) + 0x30); //this is the routine for the third decimal place
+}
+
 
 void place_lcd_cursor(unsigned char x, unsigned char y)
 {

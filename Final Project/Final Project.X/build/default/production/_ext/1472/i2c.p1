@@ -8434,6 +8434,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCD.h: 21: void LCD_write(unsigned char data[]);
 [; ;LCD.h: 22: void LCD_writeChar(unsigned char data);
 [; ;LCD.h: 23: void place_lcd_cursor(unsigned char x, unsigned char y);
+[; ;LCD.h: 24: void LCD_convertWrite(unsigned char data);
 "17 ../i2c.c
 [v _i2c_Port_Init `(v ~T0 @X0 1 ef ]
 {

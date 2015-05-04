@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F45K22 ]
 [d frameptr 4065 ]
-"13 U:\Microprocessors2\Final Project/LineSensor.c
+"29 U:\Microprocessors2\Final Project/LineSensor.c
 [e E8056 _BOOL `uc
 FALSE 0
 TRUE 1
@@ -26,7 +26,7 @@ TRUE 1
 [v _TMR4_Initialize TMR4_Initialize `(v  1 e 0 0 ]
 "164
 [v _Switch_Direction2 Switch_Direction2 `(v  1 e 0 0 ]
-"16 U:\Microprocessors2\Final Project/Driver.c
+"17 U:\Microprocessors2\Final Project/Driver.c
 [v _main main `(v  1 e 0 0 ]
 "17 U:\Microprocessors2\Final Project/i2c.c
 [v _i2c_Port_Init i2c_Port_Init `(v  1 e 0 0 ]
@@ -52,15 +52,19 @@ TRUE 1
 [v _LCD_write LCD_write `(v  1 e 0 0 ]
 "103
 [v _LCD_writeChar LCD_writeChar `(v  1 e 0 0 ]
-"118
+"117
+[v _LCD_convertWrite LCD_convertWrite `(v  1 e 0 0 ]
+"125
 [v _place_lcd_cursor place_lcd_cursor `(v  1 e 0 0 ]
-"140
+"147
 [v _Delay100ms Delay100ms `(v  1 e 0 0 ]
 "5 U:\Microprocessors2\Final Project/LineSensor.c
 [v _lineSensor_init lineSensor_init `(v  1 e 0 0 ]
 "11
+[v _lineSensor_read lineSensor_read `(i  1 e 2 0 ]
+"27
 [v _lineSensor_isWhiteLine1 lineSensor_isWhiteLine1 `(uc  1 e 1 0 ]
-"18
+"36
 [v _lineSensor_isWhiteLine2 lineSensor_isWhiteLine2 `(uc  1 e 1 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
@@ -274,7 +278,7 @@ TRUE 1
 [v _CCPR2H CCPR2H `VEuc  1 e 1 @3944 ]
 "3517
 [v _SSP2CON2 SSP2CON2 `VEuc  1 e 1 @3947 ]
-[s S825 . 1 `uc 1 SEN 1 0 :1:0 
+[s S838 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -284,85 +288,85 @@ TRUE 1
 `uc 1 GCEN 1 0 :1:7 
 ]
 "3585
-[s S834 . 1 `uc 1 . 1 0 :5:0 
+[s S847 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 ACKDT2 1 0 :1:5 
 ]
-[s S837 . 1 `uc 1 . 1 0 :4:0 
+[s S850 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 ACKEN2 1 0 :1:4 
 ]
-[s S840 . 1 `uc 1 . 1 0 :6:0 
+[s S853 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 ACKSTAT2 1 0 :1:6 
 ]
-[s S843 . 1 `uc 1 . 1 0 :1:0 
+[s S856 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 ADMSK12 1 0 :1:1 
 ]
-[s S846 . 1 `uc 1 . 1 0 :2:0 
+[s S859 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 ADMSK22 1 0 :1:2 
 ]
-[s S849 . 1 `uc 1 . 1 0 :3:0 
+[s S862 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADMSK32 1 0 :1:3 
 ]
-[s S852 . 1 `uc 1 . 1 0 :4:0 
+[s S865 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 ADMSK42 1 0 :1:4 
 ]
-[s S855 . 1 `uc 1 . 1 0 :5:0 
+[s S868 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 ADMSK52 1 0 :1:5 
 ]
-[s S858 . 1 `uc 1 . 1 0 :7:0 
+[s S871 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 GCEN2 1 0 :1:7 
 ]
-[s S861 . 1 `uc 1 . 1 0 :2:0 
+[s S874 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PEN2 1 0 :1:2 
 ]
-[s S864 . 1 `uc 1 . 1 0 :3:0 
+[s S877 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 RCEN2 1 0 :1:3 
 ]
-[s S867 . 1 `uc 1 . 1 0 :1:0 
+[s S880 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RSEN2 1 0 :1:1 
 ]
-[s S870 . 1 `uc 1 SEN2 1 0 :1:0 
+[s S883 . 1 `uc 1 SEN2 1 0 :1:0 
 ]
-[u S872 . 1 `S825 1 . 1 0 `S834 1 . 1 0 `S837 1 . 1 0 `S840 1 . 1 0 `S843 1 . 1 0 `S846 1 . 1 0 `S849 1 . 1 0 `S852 1 . 1 0 `S855 1 . 1 0 `S858 1 . 1 0 `S861 1 . 1 0 `S864 1 . 1 0 `S867 1 . 1 0 `S870 1 . 1 0 ]
-[v _SSP2CON2bits SSP2CON2bits `VES872  1 e 1 @3947 ]
+[u S885 . 1 `S838 1 . 1 0 `S847 1 . 1 0 `S850 1 . 1 0 `S853 1 . 1 0 `S856 1 . 1 0 `S859 1 . 1 0 `S862 1 . 1 0 `S865 1 . 1 0 `S868 1 . 1 0 `S871 1 . 1 0 `S874 1 . 1 0 `S877 1 . 1 0 `S880 1 . 1 0 `S883 1 . 1 0 ]
+[v _SSP2CON2bits SSP2CON2bits `VES885  1 e 1 @3947 ]
 "3694
 [v _SSP2CON1 SSP2CON1 `VEuc  1 e 1 @3948 ]
-[s S741 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S754 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "3745
-[s S747 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S760 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S752 . 1 `uc 1 . 1 0 :4:0 
+[s S765 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CKP2 1 0 :1:4 
 ]
-[s S755 . 1 `uc 1 . 1 0 :5:0 
+[s S768 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SSPEN2 1 0 :1:5 
 ]
-[s S758 . 1 `uc 1 SSPM02 1 0 :1:0 
+[s S771 . 1 `uc 1 SSPM02 1 0 :1:0 
 ]
-[s S760 . 1 `uc 1 . 1 0 :1:0 
+[s S773 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SSPM12 1 0 :1:1 
 ]
-[s S763 . 1 `uc 1 . 1 0 :2:0 
+[s S776 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 SSPM22 1 0 :1:2 
 ]
-[s S766 . 1 `uc 1 . 1 0 :3:0 
+[s S779 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPM32 1 0 :1:3 
 ]
-[s S769 . 1 `uc 1 . 1 0 :6:0 
+[s S782 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 SSPOV2 1 0 :1:6 
 ]
-[s S772 . 1 `uc 1 . 1 0 :7:0 
+[s S785 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 WCOL2 1 0 :1:7 
 ]
-[u S775 . 1 `S741 1 . 1 0 `S747 1 . 1 0 `S752 1 . 1 0 `S755 1 . 1 0 `S758 1 . 1 0 `S760 1 . 1 0 `S763 1 . 1 0 `S766 1 . 1 0 `S769 1 . 1 0 `S772 1 . 1 0 ]
-[v _SSP2CON1bits SSP2CON1bits `VES775  1 e 1 @3948 ]
+[u S788 . 1 `S754 1 . 1 0 `S760 1 . 1 0 `S765 1 . 1 0 `S768 1 . 1 0 `S771 1 . 1 0 `S773 1 . 1 0 `S776 1 . 1 0 `S779 1 . 1 0 `S782 1 . 1 0 `S785 1 . 1 0 ]
+[v _SSP2CON1bits SSP2CON1bits `VES788  1 e 1 @3948 ]
 "3834
 [v _SSP2STAT SSP2STAT `VEuc  1 e 1 @3949 ]
 "4226
@@ -388,7 +392,7 @@ TRUE 1
 `uc 1 RC7 1 0 :1:7 
 ]
 "6998
-[s S511 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S535 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 T5CKI 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -397,7 +401,7 @@ TRUE 1
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S520 . 1 `uc 1 P2B 1 0 :1:0 
+[s S544 . 1 `uc 1 P2B 1 0 :1:0 
 `uc 1 P2A 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -406,7 +410,7 @@ TRUE 1
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S529 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S553 . 1 `uc 1 T1CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK1 1 0 :1:3 
@@ -415,7 +419,7 @@ TRUE 1
 `uc 1 TX1 1 0 :1:6 
 `uc 1 RX1 1 0 :1:7 
 ]
-[s S538 . 1 `uc 1 T3CKI 1 0 :1:0 
+[s S562 . 1 `uc 1 T3CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 CTPLS 1 0 :1:2 
 `uc 1 SCL1 1 0 :1:3 
@@ -424,7 +428,7 @@ TRUE 1
 `uc 1 CK1 1 0 :1:6 
 `uc 1 DT1 1 0 :1:7 
 ]
-[s S547 . 1 `uc 1 T3G 1 0 :1:0 
+[s S571 . 1 `uc 1 T3G 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 AN14 1 0 :1:2 
 `uc 1 AN15 1 0 :1:3 
@@ -433,14 +437,14 @@ TRUE 1
 `uc 1 AN18 1 0 :1:6 
 `uc 1 AN19 1 0 :1:7 
 ]
-[s S556 . 1 `uc 1 . 1 0 :2:0 
+[s S580 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PA1 1 0 :1:2 
 ]
-[s S559 . 1 `uc 1 . 1 0 :1:0 
+[s S583 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 ]
-[u S562 . 1 `S112 1 . 1 0 `S511 1 . 1 0 `S520 1 . 1 0 `S529 1 . 1 0 `S538 1 . 1 0 `S547 1 . 1 0 `S556 1 . 1 0 `S559 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES562  1 e 1 @3970 ]
+[u S586 . 1 `S112 1 . 1 0 `S535 1 . 1 0 `S544 1 . 1 0 `S553 1 . 1 0 `S562 1 . 1 0 `S571 1 . 1 0 `S580 1 . 1 0 `S583 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES586  1 e 1 @3970 ]
 "7774
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "7906
@@ -534,6 +538,12 @@ TRUE 1
 [v _PR2 PR2 `VEuc  1 e 1 @4027 ]
 "13768
 [v _TMR2 TMR2 `VEuc  1 e 1 @4028 ]
+"13912
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"14049
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+"14179
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 [s S168 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
@@ -552,67 +562,107 @@ TRUE 1
 ]
 [u S183 . 1 `S168 1 . 1 0 `S171 1 . 1 0 `S180 1 . 1 0 ]
 [v _INTCON2bits INTCON2bits `VES183  1 e 1 @4081 ]
-"16 U:\Microprocessors2\Final Project/Driver.c
+"18167
+[v _ADON ADON `VEb  1 e 0 @32272 ]
+"18817
+[v _GODONE GODONE `VEb  1 e 0 @32273 ]
+"17 U:\Microprocessors2\Final Project/Driver.c
 [v _main main `(v  1 e 0 0 ]
 {
-"51
+"78
 } 0
-"118 U:\Microprocessors2\Final Project/i2c.c
-[v _i2c_Read i2c_Read `(uc  1 e 1 0 ]
+"27 U:\Microprocessors2\Final Project/LineSensor.c
+[v _lineSensor_isWhiteLine1 lineSensor_isWhiteLine1 `(uc  1 e 1 0 ]
 {
-[v i2c_Read@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-"123
-[v i2c_Read@range range `ui  1 a 2 19 ]
-"120
-[v i2c_Read@rangeInCm rangeInCm `uc  1 a 1 17 ]
-"121
-[v i2c_Read@rangeInCm1 rangeInCm1 `uc  1 a 1 16 ]
-"118
-[v i2c_Read@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-[v i2c_Read@reg reg `uc  1 p 1 12 ]
-"120
-[v i2c_Read@deviceAddress deviceAddress `uc  1 a 1 18 ]
-"174
+"29
+[v lineSensor_isWhiteLine1@isWhiteLine isWhiteLine `uc  1 a 1 2 ]
+"34
 } 0
-"118 U:\Microprocessors2\Final Project/LCD.c
-[v _place_lcd_cursor place_lcd_cursor `(v  1 e 0 0 ]
-{
-[v place_lcd_cursor@x x `uc  1 a 1 wreg ]
-"124
-[v place_lcd_cursor@position position `uc  1 a 1 3 ]
-"118
-[v place_lcd_cursor@x x `uc  1 a 1 wreg ]
-[v place_lcd_cursor@y y `uc  1 p 1 0 ]
-"121
-[v place_lcd_cursor@x x `uc  1 a 1 2 ]
-"138
-} 0
-"81 U:\Microprocessors2\Final Project/i2c.c
-[v _i2c_Restart i2c_Restart `(v  1 e 0 0 ]
-{
-"85
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-{
 "11
-[v ___lwmod@counter counter `uc  1 a 1 4 ]
-"8
-[v ___lwmod@dividend dividend `ui  1 p 2 0 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 2 ]
-"26
-} 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+[v _lineSensor_read lineSensor_read `(i  1 e 2 0 ]
 {
-"11
-[v ___lwdiv@quotient quotient `ui  1 a 2 9 ]
-"12
-[v ___lwdiv@counter counter `uc  1 a 1 11 ]
-"8
-[v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
-[v ___lwdiv@divisor divisor `ui  1 p 2 7 ]
-"31
+[v lineSensor_read@Channel Channel `ui  1 p 2 0 ]
+"25
+} 0
+"5
+[v _lineSensor_init lineSensor_init `(v  1 e 0 0 ]
+{
+"9
+} 0
+"144 U:\Microprocessors2\Final Project/DCMotor.c
+[v _TMR4_Initialize TMR4_Initialize `(v  1 e 0 0 ]
+{
+"162
+} 0
+"74
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 0 0 ]
+{
+"92
+} 0
+"164
+[v _Switch_Direction2 Switch_Direction2 `(v  1 e 0 0 ]
+{
+"172
+} 0
+"133
+[v _EPWM2_LoadDutyValue EPWM2_LoadDutyValue `(v  1 e 0 0 ]
+{
+[v EPWM2_LoadDutyValue@dutyValue dutyValue `i  1 p 2 42 ]
+"142
+} 0
+"94
+[v _Switch_Direction1 Switch_Direction1 `(v  1 e 0 0 ]
+{
+"102
+} 0
+"63
+[v _EPWM1_LoadDutyValue EPWM1_LoadDutyValue `(v  1 e 0 0 ]
+{
+[v EPWM1_LoadDutyValue@dutyValue dutyValue `i  1 p 2 42 ]
+"72
+} 0
+"44 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+{
+"47
+[v ___fttol@lval lval `ul  1 a 4 37 ]
+"46
+[v ___fttol@exp1 exp1 `uc  1 a 1 41 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 36 ]
+"44
+[v ___fttol@f1 f1 `f  1 p 3 27 ]
+"73
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 21 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 26 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 25 ]
+[v ___ftmul@exp exp `uc  1 a 1 24 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 12 ]
+[v ___ftmul@f2 f2 `f  1 p 3 15 ]
+"157
+} 0
+"32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+{
+"34
+[v ___awtoft@sign sign `uc  1 a 1 11 ]
+"32
+[v ___awtoft@c c `i  1 p 2 8 ]
+"42
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+{
+[v ___ftpack@arg arg `um  1 p 3 0 ]
+[v ___ftpack@exp exp `uc  1 p 1 3 ]
+[v ___ftpack@sign sign `uc  1 p 1 4 ]
+"86
 } 0
 "103 U:\Microprocessors2\Final Project/LCD.c
 [v _LCD_writeChar LCD_writeChar `(v  1 e 0 0 ]
@@ -628,48 +678,43 @@ TRUE 1
 [v LCD_writeChar@data data `uc  1 a 1 3 ]
 "115
 } 0
-"17 U:\Microprocessors2\Final Project/i2c.c
-[v _i2c_Port_Init i2c_Port_Init `(v  1 e 0 0 ]
+"18
+[v _LCD_init LCD_init `(v  1 e 0 0 ]
 {
-"48
+"80
 } 0
-"51
-[v _i2c_Init i2c_Init `(v  1 e 0 0 ]
+"125
+[v _place_lcd_cursor place_lcd_cursor `(v  1 e 0 0 ]
 {
-"65
+[v place_lcd_cursor@x x `uc  1 a 1 wreg ]
+"131
+[v place_lcd_cursor@position position `uc  1 a 1 3 ]
+"125
+[v place_lcd_cursor@x x `uc  1 a 1 wreg ]
+[v place_lcd_cursor@y y `uc  1 p 1 0 ]
+"128
+[v place_lcd_cursor@x x `uc  1 a 1 2 ]
+"145
 } 0
-"102
-[v _i2c_Command i2c_Command `(v  1 e 0 0 ]
+"147
+[v _Delay100ms Delay100ms `(v  1 e 0 0 ]
 {
-[v i2c_Command@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-[v i2c_Command@deviceAddress deviceAddress `uc  1 a 1 wreg ]
-[v i2c_Command@reg reg `uc  1 p 1 2 ]
-[v i2c_Command@command command `uc  1 p 1 3 ]
+"148
+[v Delay100ms@i i `i  1 a 2 1 ]
+"154
+} 0
+"6 U:\Microprocessors2\Final Project/DCMotor.c
+[v _EPWM_Port_Init EPWM_Port_Init `(v  1 e 0 0 ]
+{
+"30
+} 0
 "104
-[v i2c_Command@deviceAddress deviceAddress `uc  1 a 1 5 ]
-"116
-} 0
-"96
-[v _i2c_Write i2c_Write `(v  1 e 0 0 ]
+[v _EPWM2_Initialize EPWM2_Initialize `(v  1 e 0 0 ]
 {
-[v i2c_Write@data data `uc  1 a 1 wreg ]
-[v i2c_Write@data data `uc  1 a 1 wreg ]
-"98
-[v i2c_Write@data data `uc  1 a 1 1 ]
-"100
+"131
 } 0
-"88
-[v _i2c_Stop i2c_Stop `(v  1 e 0 0 ]
+"33
+[v _EPWM1_Initialize EPWM1_Initialize `(v  1 e 0 0 ]
 {
-"93
-} 0
-"73
-[v _i2c_Start i2c_Start `(v  1 e 0 0 ]
-{
-"78
-} 0
-"68
-[v _i2c_Wait i2c_Wait `(v  1 e 0 0 ]
-{
-"70
+"61
 } 0

@@ -21,6 +21,7 @@ void LCD_init(void);
 void LCD_write(unsigned char data[]);
 void LCD_writeChar(unsigned char data);
 void place_lcd_cursor(unsigned char x, unsigned char y);
+void LCD_convertWrite(unsigned char data);
 
 
 #ifdef	__cplusplus

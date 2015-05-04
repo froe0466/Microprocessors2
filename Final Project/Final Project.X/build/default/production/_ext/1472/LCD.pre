@@ -10473,6 +10473,7 @@ void LCD_init(void);
 void LCD_write(unsigned char data[]);
 void LCD_writeChar(unsigned char data);
 void place_lcd_cursor(unsigned char x, unsigned char y);
+void LCD_convertWrite(unsigned char data);
 
 # 16 "../LCD.c"
 int yPos = 0;
@@ -10574,6 +10575,13 @@ LATCbits.LC2 = 1; LATC = (LATC & 0b00001111) | upper; LATCbits.LC2 = 0;
 LATCbits.LC2 = 1; LATC = (LATC & 0b00001111) | lower; LATCbits.LC2 = 0;
 _delay((unsigned long)((1)*(10000000/4000.0)));
 LATCbits.LC3 = 0;
+}
+
+void LCD_convertWrite(unsigned char data)
+{
+LCD_writeChar((data / 100) + 0x30);
+LCD_writeChar(((data % 100) / 10) + 0x30);
+LCD_writeChar(((data % 100) % 10) + 0x30);
 }
 
 

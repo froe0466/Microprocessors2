@@ -10473,6 +10473,7 @@ void LCD_init(void);
 void LCD_write(unsigned char data[]);
 void LCD_writeChar(unsigned char data);
 void place_lcd_cursor(unsigned char x, unsigned char y);
+void LCD_convertWrite(unsigned char data);
 
 # 15 "../DCMotor.h"
 void EPWM1_Initialize (void);
@@ -10498,17 +10499,59 @@ void i2c_Write(unsigned char data);
 void i2c_Command(unsigned char deviceAddress,unsigned char reg, unsigned char command);
 char i2c_Read(unsigned char deviceAddress, unsigned char reg);
 
-# 16 "../Driver.c"
+# 18 "../LineSensor.h"
+void lineSensor_init(void);
+int lineSensor_read(unsigned int Channel);
+bool lineSensor_isWhiteLine1(void);
+bool lineSensor_isWhiteLine2(void);
+
+# 17 "../Driver.c"
 void main(void){
 
-# 42
-i2c_Port_Init();
-i2c_Init();
+
+
+EPWM_Port_Init();
+
+
+EPWM1_Initialize();
+TMR2_Initialize();
+EPWM1_LoadDutyValue(60);
+Switch_Direction1();
+EPWM1_LoadDutyValue(60);
+
+
+EPWM2_Initialize();
+TMR4_Initialize();
+EPWM2_LoadDutyValue(60);
+Switch_Direction2();
+EPWM2_LoadDutyValue(60);
+
+
+LCD_init();
+place_lcd_cursor(0,0);
+LCD_writeChar('h');
+
+# 56
+lineSensor_init();
 
 while(1)
 {
 
-i2c_Command(0xE0,0x00,0x51);
-i2c_Read(0xE0,0x02);
+place_lcd_cursor(0,1);
+
+if(lineSensor_isWhiteLine1())
+{
+LCD_writeChar('T');
 }
+else
+{
+LCD_writeChar('F');
+}
+
+_delay((unsigned long)((50)*(10000000/4000.0)));
+
+
+}
+
+
 }
