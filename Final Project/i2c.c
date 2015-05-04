@@ -29,14 +29,22 @@ void i2c_Port_Init (void) {
      LATC = 0;   // prepare PortC
      TRISC = 0;  // set as Outputs
      ANSELC = 0; // define PINS as Digital
-
-     LATD = 0;  // prepare PORTD
-     TRISD = 0;  // set as Outputs
-     ANSELD = 0; // define PINS as Digital
+/*
+   LATDbits.LD0 = 0;  //   // prepare PORTD
+   LATDbits.LD1 = 0;
+   TRISDbits.RD0 = 0;  //    // set as Outputs
+   TRISDbits.RD1 = 0;
+   ANSELDbits.ANSD0 = 0;  //  // define PINS as Digital
+   ANSELDbits.ANSD1 = 0;
+   */
+     LATD = 0;
+     TRISD = 0;
+     ANSELD = 0;
 
      LATE = 0;  // prepare PORTD
      TRISE = 0;  // set as Outputs
      ANSELE = 0; // define PINS as Digital
+    
  }
 
  // Initialise MSSP port
@@ -151,9 +159,11 @@ void i2c_Port_Init (void) {
     range = range + rangeInCm1;
 
     //Write to LCD Screen
-    place_lcd_cursor(0,0);
+    place_lcd_cursor(0,1);
     LCD_writeChar((range / 100) + 0x30); //this is the routine for the first decimal place
+    place_lcd_cursor(1,1);
     LCD_writeChar(((range % 100) / 10) + 0x30); //this is the routine for the second decimal place
+    place_lcd_cursor(2,1);
     LCD_writeChar(((range % 100) % 10) + 0x30); //this is the routine for the third decimal place
 
     return rangeInCm; //THIS VALUE SHOULD BE IN CM - IT CURRENTLY IS WRONG!!!!

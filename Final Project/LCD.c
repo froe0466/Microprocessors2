@@ -20,18 +20,18 @@ void LCD_init(void)
     //Initialize Ports as 0
     LATCbits.LC3 = 0;
     LATCbits.LC2 = 0;
-    LATDbits.LD4 = 0;
-    LATDbits.LD5 = 0;
-    LATDbits.LD6 = 0;
-    LATDbits.LD7 = 0;
+    LATCbits.LC4 = 0;
+    LATCbits.LC5 = 0;
+    LATCbits.LC6 = 0;
+    LATCbits.LC7 = 0;
 
     //Set Ports as outputs
     TRISCbits.RC3 = 0;
     TRISCbits.RC2 = 0;
-    TRISDbits.RD4 = 0;
-    TRISDbits.RD5 = 0;
-    TRISDbits.RD6 = 0;
-    TRISDbits.RD7 = 0;
+    TRISCbits.RC4 = 0;
+    TRISCbits.RC5 = 0;
+    TRISCbits.RC6 = 0;
+    TRISCbits.RC7 = 0;
 
     // wait for Power on reset
     Delay100ms();
@@ -40,39 +40,39 @@ void LCD_init(void)
     PORTCbits.RC3 = 0;
 
     //Function Set in 8-bit mode
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x30; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x30; PORTCbits.RC2 = 0;
     __delay_ms(10);
 
     //Function Set in 8-bit mode
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x30; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x30; PORTCbits.RC2 = 0;
     __delay_ms(10);
 
     //Function Set in 8-bit mode
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x30; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x30; PORTCbits.RC2 = 0;
     __delay_ms(10);
 
     //4-bit Initialization
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x20; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x20; PORTCbits.RC2 = 0;
     __delay_ms(10);
 
     //Function Set, specify display size and font
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x20; PORTCbits.RC2 = 0;
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x80; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x20; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x80; PORTCbits.RC2 = 0;
     __delay_ms(10);
 
     //Display ON
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x00; PORTCbits.RC2 = 0;
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0xF0; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x00; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0xF0; PORTCbits.RC2 = 0;
     __delay_ms(10);
 
     //Clear Display
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x00; PORTCbits.RC2 = 0;
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x10; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x00; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x10; PORTCbits.RC2 = 0;
     __delay_ms(10);
     
     //Entry Mode Set
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x00; PORTCbits.RC2 = 0;
-    PORTCbits.RC2 = 1; PORTD = (PORTD & 0b00001111) | 0x60; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x00; PORTCbits.RC2 = 0;
+    PORTCbits.RC2 = 1; PORTC = (PORTC & 0b00001111) | 0x60; PORTCbits.RC2 = 0;
     __delay_ms(10);
 
     //Set DDRAM Address
@@ -108,8 +108,8 @@ void LCD_writeChar(unsigned char data)
 
     //clear pins and send upper and lower bytes using 4-bit interface
     LATCbits.LC3 = 1;
-    LATCbits.LC2 = 1; LATD = (LATD & 0b00001111) | upper; LATCbits.LC2 = 0;
-    LATCbits.LC2 = 1; LATD = (LATD & 0b00001111) | lower; LATCbits.LC2 = 0;
+    LATCbits.LC2 = 1; LATC = (LATC & 0b00001111) | upper; LATCbits.LC2 = 0;
+    LATCbits.LC2 = 1; LATC = (LATC & 0b00001111) | lower; LATCbits.LC2 = 0;
     __delay_ms(1);
     LATCbits.LC3 = 0;
 }
@@ -126,13 +126,13 @@ void place_lcd_cursor(unsigned char x, unsigned char y)
 
     //send upper bits to DDRM, making sure to set MSB to 1
     LATCbits.LC2 = 1;
-    LATD = LATD & 0b00001111;
-    LATD = (LATD | (position & 0b11110000)) | 0b10000000;
+    LATC = LATC & 0b00001111;
+    LATC = (LATC | (position & 0b11110000)) | 0b10000000;
     LATCbits.LC2 = 0;
 
     //send lower bits to DDRM
     LATCbits.LC2 = 1;
-    LATD = (LATD & 0b00001111) | (position << 4);
+    LATC = (LATC & 0b00001111) | (position << 4);
     LATCbits.LC2 = 0;
     __delay_ms(1);
 }

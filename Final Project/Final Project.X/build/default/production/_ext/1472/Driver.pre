@@ -10501,20 +10501,14 @@ char i2c_Read(unsigned char deviceAddress, unsigned char reg);
 # 16 "../Driver.c"
 void main(void){
 
-# 43
-LCD_init();
-place_lcd_cursor(0,0);
-LCD_writeChar('1');
-place_lcd_cursor(1,0);
-LCD_writeChar('9');
-place_lcd_cursor(2,0);
-LCD_writeChar('6');
-place_lcd_cursor(3,0);
-LCD_writeChar('1');
+# 42
+i2c_Port_Init();
+i2c_Init();
 
 while(1)
 {
 
-# 60
+i2c_Command(0xE0,0x00,0x51);
+i2c_Read(0xE0,0x02);
 }
 }

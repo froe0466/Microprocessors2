@@ -10502,6 +10502,7 @@ LATC = 0;
 TRISC = 0;
 ANSELC = 0;
 
+# 40
 LATD = 0;
 TRISD = 0;
 ANSELD = 0;
@@ -10509,6 +10510,7 @@ ANSELD = 0;
 LATE = 0;
 TRISE = 0;
 ANSELE = 0;
+
 }
 
 
@@ -10623,9 +10625,11 @@ range = rangeInCm<<8;
 range = range + rangeInCm1;
 
 
-place_lcd_cursor(0,0);
+place_lcd_cursor(0,1);
 LCD_writeChar((range / 100) + 0x30);
+place_lcd_cursor(1,1);
 LCD_writeChar(((range % 100) / 10) + 0x30);
+place_lcd_cursor(2,1);
 LCD_writeChar(((range % 100) % 10) + 0x30);
 
 return rangeInCm;

@@ -1,11 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"20 ../LCD.h
-[v _LCD_init `(v ~T0 @X0 0 ef ]
-"23
-[v _place_lcd_cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"15 ../i2c.h
+[v _i2c_Port_Init `(v ~T0 @X0 0 ef ]
+"16
+[v _i2c_Init `(v ~T0 @X0 0 ef ]
 "22
-[v _LCD_writeChar `(v ~T0 @X0 0 ef1`uc ]
+[v _i2c_Command `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"23
+[v _i2c_Read `(uc ~T0 @X0 0 ef2`uc`uc ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8315,47 +8317,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Driver.c: 16: void main(void){
 [e :U _main ]
 [f ]
-[; ;Driver.c: 43: LCD_init();
+[; ;Driver.c: 42: i2c_Port_Init();
+"42
+[e ( _i2c_Port_Init ..  ]
+[; ;Driver.c: 43: i2c_Init();
 "43
-[e ( _LCD_init ..  ]
-[; ;Driver.c: 44: place_lcd_cursor(0,0);
-"44
-[e ( _place_lcd_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Driver.c: 45: LCD_writeChar('1');
+[e ( _i2c_Init ..  ]
+[; ;Driver.c: 45: while(1)
 "45
-[e ( _LCD_writeChar (1 -> -> 49 `ui `uc ]
-[; ;Driver.c: 46: place_lcd_cursor(1,0);
-"46
-[e ( _place_lcd_cursor (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;Driver.c: 47: LCD_writeChar('9');
-"47
-[e ( _LCD_writeChar (1 -> -> 57 `ui `uc ]
-[; ;Driver.c: 48: place_lcd_cursor(2,0);
-"48
-[e ( _place_lcd_cursor (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-[; ;Driver.c: 49: LCD_writeChar('6');
-"49
-[e ( _LCD_writeChar (1 -> -> 54 `ui `uc ]
-[; ;Driver.c: 50: place_lcd_cursor(3,0);
-"50
-[e ( _place_lcd_cursor (2 , -> -> 3 `i `uc -> -> 0 `i `uc ]
-[; ;Driver.c: 51: LCD_writeChar('1');
-"51
-[e ( _LCD_writeChar (1 -> -> 49 `ui `uc ]
-[; ;Driver.c: 53: while(1)
-"53
 [e :U 1180 ]
-[; ;Driver.c: 54: {
-"54
+[; ;Driver.c: 46: {
+"46
 {
-"60
+[; ;Driver.c: 48: i2c_Command(0xE0,0x00,0x51);
+"48
+[e ( _i2c_Command (3 , , -> -> 224 `i `uc -> -> 0 `i `uc -> -> 81 `i `uc ]
+[; ;Driver.c: 49: i2c_Read(0xE0,0x02);
+"49
+[e ( _i2c_Read (2 , -> -> 224 `i `uc -> -> 2 `i `uc ]
+"50
 }
 [e :U 1179 ]
-"53
+"45
 [e $U 1180  ]
 [e :U 1181 ]
-[; ;Driver.c: 60: }
-[; ;Driver.c: 61: }
-"61
+[; ;Driver.c: 50: }
+[; ;Driver.c: 51: }
+"51
 [e :UE 1178 ]
 }

@@ -14,9 +14,9 @@ void EPWM_Port_Init(void)
     ANSELB = ANSELB & 0x1F;
     WPUB = 0x00;
 
-    LATC = LATC & 0x00;
-    TRISC = TRISC & 0xFD;
-    ANSELC = ANSELC & 0xFC;
+    LATCbits.LC1 = 0;  //LATC = 0x00;
+    TRISCbits.RC1 = 0;   //TRISC = 0xFD;
+    ANSELCbits.ANSC2 = 0; //ANSELC = 0xFC;
 
     LATD = LATD & 0x00;
     TRISD = TRISD & 0xFB;

@@ -13,12 +13,57 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ANSELB `Vuc ~T0 @X0 0 e@3897 ]
 "2686
 [v _WPUB `Vuc ~T0 @X0 0 e@3937 ]
-"8038
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
-"8846
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"140
-[v _ANSELC `Vuc ~T0 @X0 0 e@3898 ]
+"8044
+[s S489 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S489 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"8054
+[s S490 :1 `uc 1 ]
+[n S490 . LC0 ]
+"8057
+[s S491 :1 `uc 1 :1 `uc 1 ]
+[n S491 . . LC1 ]
+"8061
+[s S492 :2 `uc 1 :1 `uc 1 ]
+[n S492 . . LC2 ]
+"8065
+[s S493 :3 `uc 1 :1 `uc 1 ]
+[n S493 . . LC3 ]
+"8069
+[s S494 :4 `uc 1 :1 `uc 1 ]
+[n S494 . . LC4 ]
+"8073
+[s S495 :5 `uc 1 :1 `uc 1 ]
+[n S495 . . LC5 ]
+"8077
+[s S496 :6 `uc 1 :1 `uc 1 ]
+[n S496 . . LC6 ]
+"8081
+[s S497 :7 `uc 1 :1 `uc 1 ]
+[n S497 . . LC7 ]
+"8043
+[u S488 `S489 1 `S490 1 `S491 1 `S492 1 `S493 1 `S494 1 `S495 1 `S496 1 `S497 1 ]
+[n S488 . . . . . . . . . . ]
+"8086
+[v _LATCbits `VS488 ~T0 @X0 0 e@3979 ]
+"8857
+[s S531 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S531 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"8867
+[s S532 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S532 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"8856
+[u S530 `S531 1 `S532 1 ]
+[n S530 . . . ]
+"8878
+[v _TRISCbits `VS530 ~T0 @X0 0 e@3988 ]
+"146
+[s S6 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S6 . . ANSC2 ANSC3 ANSC4 ANSC5 ANSC6 ANSC7 ]
+"145
+[u S5 `S6 1 ]
+[n S5 . . ]
+"156
+[v _ANSELCbits `VS5 ~T0 @X0 0 e@3898 ]
 "8170
 [v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 "9067
@@ -8451,15 +8496,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DCMotor.c: 15: WPUB = 0x00;
 "15
 [e = _WPUB -> -> 0 `i `uc ]
-[; ;DCMotor.c: 17: LATC = LATC & 0x00;
+[; ;DCMotor.c: 17: LATCbits.LC1 = 0;
 "17
-[e = _LATC -> & -> _LATC `i -> 0 `i `uc ]
-[; ;DCMotor.c: 18: TRISC = TRISC & 0xFD;
+[e = . . _LATCbits 2 1 -> -> 0 `i `uc ]
+[; ;DCMotor.c: 18: TRISCbits.RC1 = 0;
 "18
-[e = _TRISC -> & -> _TRISC `i -> 253 `i `uc ]
-[; ;DCMotor.c: 19: ANSELC = ANSELC & 0xFC;
+[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
+[; ;DCMotor.c: 19: ANSELCbits.ANSC2 = 0;
 "19
-[e = _ANSELC -> & -> _ANSELC `i -> 252 `i `uc ]
+[e = . . _ANSELCbits 0 1 -> -> 0 `i `uc ]
 [; ;DCMotor.c: 21: LATD = LATD & 0x00;
 "21
 [e = _LATD -> & -> _LATD `i -> 0 `i `uc ]
