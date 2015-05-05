@@ -10474,6 +10474,8 @@ bool lineSensor_isWhiteLine1(void);
 bool lineSensor_isWhiteLine2(void);
 
 # 5 "../LineSensor.c"
+char whiteLineThreshold = 125;
+
 void lineSensor_init()
 {
 ADCON2=0b10001010;
@@ -10500,7 +10502,7 @@ bool lineSensor_isWhiteLine1()
 {
 bool isWhiteLine = FALSE;
 
-if (lineSensor_read(0) < 65) {isWhiteLine = TRUE;}
+if (lineSensor_read(0) < whiteLineThreshold) {isWhiteLine = TRUE;}
 
 return isWhiteLine;
 }
@@ -10509,7 +10511,7 @@ bool lineSensor_isWhiteLine2()
 {
 bool isWhiteLine = FALSE;
 
-if (lineSensor_read(1) < 65) {isWhiteLine = TRUE;}
+if (lineSensor_read(1) < whiteLineThreshold) {isWhiteLine = TRUE;}
 
 return isWhiteLine;
 }

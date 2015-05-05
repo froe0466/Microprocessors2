@@ -2,7 +2,7 @@
 #include "config.h" //Header file for the configuration bits
 #include "LineSensor.h"
 
-char whiteLineThreshold = 65;
+char whiteLineThreshold = 125;
 
 void lineSensor_init()
 {

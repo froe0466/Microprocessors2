@@ -16,9 +16,19 @@
 
 void main(void){
 
-    /*NOTE:: You need to edit all of the Port Init functions to make sure that they do not overwrite each other!!*/
-  
+    //ECCP Initialization
     EPWM_Port_Init();
+
+    //LCD Init Sequence
+    LCD_init();
+    place_lcd_cursor(0,0);
+
+    //i2c Initialization
+    i2c_Port_Init();
+    i2c_Init();
+
+    //Line Sensor Initialization
+    lineSensor_init();
 
     //ECCP1 Init Sequence
     EPWM1_Initialize();
@@ -34,45 +44,29 @@ void main(void){
     Switch_Direction2();
     EPWM2_LoadDutyValue(60);
 
-    //LCD Init Sequence
-    LCD_init(); //Initialize LCD
-    place_lcd_cursor(0,0);
-    LCD_writeChar('h');
-
-
- /*
-    //i2c Initialization
-    i2c_Port_Init();
-    i2c_Init();
-
+    LCD_write("Start");
+ 
     while(1)
     {
       //Ultrasonic Sensor - Echo Command & Read
       i2c_Command(0xE0,0x00,0x51);
       i2c_Read(0xE0,0x02);
-    }
-*/
 
-    lineSensor_init();
-
-    while(1)
-    {
         //Read Line Sensor
-        place_lcd_cursor(0,1);
-
+        place_lcd_cursor(5,1);
+        LCD_convertWrite(lineSensor_read(0));
+       
+        //Line Sensor True or False
         if(lineSensor_isWhiteLine1())
         {
+            place_lcd_cursor(8,1);
             LCD_writeChar('T');
         }
         else
         {
             LCD_writeChar('F');
         }
-   
-        __delay_ms(50);
-
-
+     
     }
-
 
 }

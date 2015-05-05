@@ -10489,29 +10489,15 @@ void LCD_convertWrite(unsigned char data);
 # 17 "../i2c.c"
 void i2c_Port_Init (void) {
 
+# 33
+LATDbits.LD0 = 0;
+LATDbits.LD1 = 0;
+TRISDbits.RD0 = 0;
+TRISDbits.RD1 = 0;
+ANSELDbits.ANSD0 = 0;
+ANSELDbits.ANSD1 = 0;
 
-
-LATA = 0;
-TRISA = 0;
-ANSELA = 0;
-
-LATB = 0;
-TRISB = 0b00000110;
-ANSELB = 0;
-
-LATC = 0;
-TRISC = 0;
-ANSELC = 0;
-
-# 40
-LATD = 0;
-TRISD = 0;
-ANSELD = 0;
-
-LATE = 0;
-TRISE = 0;
-ANSELE = 0;
-
+# 48
 }
 
 

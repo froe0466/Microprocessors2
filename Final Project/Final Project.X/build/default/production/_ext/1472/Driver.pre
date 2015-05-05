@@ -10509,8 +10509,18 @@ bool lineSensor_isWhiteLine2(void);
 void main(void){
 
 
-
 EPWM_Port_Init();
+
+
+LCD_init();
+place_lcd_cursor(0,0);
+
+
+i2c_Port_Init();
+i2c_Init();
+
+
+lineSensor_init();
 
 
 EPWM1_Initialize();
@@ -10526,21 +10536,22 @@ EPWM2_LoadDutyValue(60);
 Switch_Direction2();
 EPWM2_LoadDutyValue(60);
 
-
-LCD_init();
-place_lcd_cursor(0,0);
-LCD_writeChar('h');
-
-# 56
-lineSensor_init();
+LCD_write("Start");
 
 while(1)
 {
 
-place_lcd_cursor(0,1);
+i2c_Command(0xE0,0x00,0x51);
+i2c_Read(0xE0,0x02);
+
+
+place_lcd_cursor(5,1);
+LCD_convertWrite(lineSensor_read(0));
+
 
 if(lineSensor_isWhiteLine1())
 {
+place_lcd_cursor(8,1);
 LCD_writeChar('T');
 }
 else
@@ -10548,10 +10559,6 @@ else
 LCD_writeChar('F');
 }
 
-_delay((unsigned long)((50)*(10000000/4000.0)));
-
-
 }
-
 
 }

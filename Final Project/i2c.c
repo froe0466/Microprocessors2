@@ -15,7 +15,7 @@
 #include "LCD.h"
 
 void i2c_Port_Init (void) {
-
+/*
     // OSCCON = 0b11110110;  //perpare internal osciallator at 16MHz operation //refer to Datasheet p.32
 
      LATA = 0;  // prepare PORTA
@@ -29,14 +29,14 @@ void i2c_Port_Init (void) {
      LATC = 0;   // prepare PortC
      TRISC = 0;  // set as Outputs
      ANSELC = 0; // define PINS as Digital
-/*
+*/
    LATDbits.LD0 = 0;  //   // prepare PORTD
    LATDbits.LD1 = 0;
    TRISDbits.RD0 = 0;  //    // set as Outputs
    TRISDbits.RD1 = 0;
    ANSELDbits.ANSD0 = 0;  //  // define PINS as Digital
    ANSELDbits.ANSD1 = 0;
-   */
+  /*
      LATD = 0;
      TRISD = 0;
      ANSELD = 0;
@@ -44,7 +44,7 @@ void i2c_Port_Init (void) {
      LATE = 0;  // prepare PORTD
      TRISE = 0;  // set as Outputs
      ANSELE = 0; // define PINS as Digital
-    
+    */
  }
 
  // Initialise MSSP port

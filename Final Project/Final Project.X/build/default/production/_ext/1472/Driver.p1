@@ -2,7 +2,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "25 ../DCMotor.h
 [v _EPWM_Port_Init `(v ~T0 @X0 0 ef ]
-"15
+"20 ../LCD.h
+[v _LCD_init `(v ~T0 @X0 0 ef ]
+"23
+[v _place_lcd_cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"15 ../i2c.h
+[v _i2c_Port_Init `(v ~T0 @X0 0 ef ]
+"16
+[v _i2c_Init `(v ~T0 @X0 0 ef ]
+"18 ../LineSensor.h
+[v _lineSensor_init `(v ~T0 @X0 0 ef ]
+"15 ../DCMotor.h
 [v _EPWM1_Initialize `(v ~T0 @X0 0 ef ]
 "17
 [v _TMR2_Initialize `(v ~T0 @X0 0 ef ]
@@ -18,20 +28,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EPWM2_LoadDutyValue `(v ~T0 @X0 0 ef1`i ]
 "23
 [v _Switch_Direction2 `(v ~T0 @X0 0 ef ]
-"20 ../LCD.h
-[v _LCD_init `(v ~T0 @X0 0 ef ]
+"21 ../LCD.h
+[v _LCD_write `(v ~T0 @X0 0 ef1`*uc ]
+"22 ../i2c.h
+[v _i2c_Command `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "23
-[v _place_lcd_cursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"22
-[v _LCD_writeChar `(v ~T0 @X0 0 ef1`uc ]
-"18 ../LineSensor.h
-[v _lineSensor_init `(v ~T0 @X0 0 ef ]
+[v _i2c_Read `(uc ~T0 @X0 0 ef2`uc`uc ]
+"24 ../LCD.h
+[v _LCD_convertWrite `(v ~T0 @X0 0 ef1`uc ]
+"19 ../LineSensor.h
+[v _lineSensor_read `(i ~T0 @X0 0 ef1`ui ]
 "20
 [v _lineSensor_isWhiteLine1 `(uc ~T0 @X0 0 ef ]
-[v F8800 `(v ~T0 @X0 1 tf1`ul ]
-"147 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18.h
-[v __delay `JF8800 ~T0 @X0 0 e ]
-[p i __delay ]
+"22 ../LCD.h
+[v _LCD_writeChar `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8346,97 +8356,114 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Driver.c: 17: void main(void){
 [e :U _main ]
 [f ]
-[; ;Driver.c: 21: EPWM_Port_Init();
-"21
+[; ;Driver.c: 20: EPWM_Port_Init();
+"20
 [e ( _EPWM_Port_Init ..  ]
-[; ;Driver.c: 24: EPWM1_Initialize();
-"24
-[e ( _EPWM1_Initialize ..  ]
-[; ;Driver.c: 25: TMR2_Initialize();
-"25
-[e ( _TMR2_Initialize ..  ]
-[; ;Driver.c: 26: EPWM1_LoadDutyValue(60);
-"26
-[e ( _EPWM1_LoadDutyValue (1 -> 60 `i ]
-[; ;Driver.c: 27: Switch_Direction1();
-"27
-[e ( _Switch_Direction1 ..  ]
-[; ;Driver.c: 28: EPWM1_LoadDutyValue(60);
-"28
-[e ( _EPWM1_LoadDutyValue (1 -> 60 `i ]
-[; ;Driver.c: 31: EPWM2_Initialize();
-"31
-[e ( _EPWM2_Initialize ..  ]
-[; ;Driver.c: 32: TMR4_Initialize();
-"32
-[e ( _TMR4_Initialize ..  ]
-[; ;Driver.c: 33: EPWM2_LoadDutyValue(60);
-"33
-[e ( _EPWM2_LoadDutyValue (1 -> 60 `i ]
-[; ;Driver.c: 34: Switch_Direction2();
-"34
-[e ( _Switch_Direction2 ..  ]
-[; ;Driver.c: 35: EPWM2_LoadDutyValue(60);
-"35
-[e ( _EPWM2_LoadDutyValue (1 -> 60 `i ]
-[; ;Driver.c: 38: LCD_init();
-"38
+[; ;Driver.c: 23: LCD_init();
+"23
 [e ( _LCD_init ..  ]
-[; ;Driver.c: 39: place_lcd_cursor(0,0);
-"39
+[; ;Driver.c: 24: place_lcd_cursor(0,0);
+"24
 [e ( _place_lcd_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Driver.c: 40: LCD_writeChar('h');
-"40
-[e ( _LCD_writeChar (1 -> -> 104 `ui `uc ]
-[; ;Driver.c: 56: lineSensor_init();
-"56
+[; ;Driver.c: 27: i2c_Port_Init();
+"27
+[e ( _i2c_Port_Init ..  ]
+[; ;Driver.c: 28: i2c_Init();
+"28
+[e ( _i2c_Init ..  ]
+[; ;Driver.c: 31: lineSensor_init();
+"31
 [e ( _lineSensor_init ..  ]
-[; ;Driver.c: 58: while(1)
-"58
+[; ;Driver.c: 34: EPWM1_Initialize();
+"34
+[e ( _EPWM1_Initialize ..  ]
+[; ;Driver.c: 35: TMR2_Initialize();
+"35
+[e ( _TMR2_Initialize ..  ]
+[; ;Driver.c: 36: EPWM1_LoadDutyValue(60);
+"36
+[e ( _EPWM1_LoadDutyValue (1 -> 60 `i ]
+[; ;Driver.c: 37: Switch_Direction1();
+"37
+[e ( _Switch_Direction1 ..  ]
+[; ;Driver.c: 38: EPWM1_LoadDutyValue(60);
+"38
+[e ( _EPWM1_LoadDutyValue (1 -> 60 `i ]
+[; ;Driver.c: 41: EPWM2_Initialize();
+"41
+[e ( _EPWM2_Initialize ..  ]
+[; ;Driver.c: 42: TMR4_Initialize();
+"42
+[e ( _TMR4_Initialize ..  ]
+[; ;Driver.c: 43: EPWM2_LoadDutyValue(60);
+"43
+[e ( _EPWM2_LoadDutyValue (1 -> 60 `i ]
+[; ;Driver.c: 44: Switch_Direction2();
+"44
+[e ( _Switch_Direction2 ..  ]
+[; ;Driver.c: 45: EPWM2_LoadDutyValue(60);
+"45
+[e ( _EPWM2_LoadDutyValue (1 -> 60 `i ]
+[; ;Driver.c: 47: LCD_write("Start");
+"47
+[e ( _LCD_write (1 -> :s 1C `*uc ]
+[; ;Driver.c: 49: while(1)
+"49
 [e :U 1180 ]
-[; ;Driver.c: 59: {
-"59
+[; ;Driver.c: 50: {
+"50
 {
-[; ;Driver.c: 61: place_lcd_cursor(0,1);
-"61
-[e ( _place_lcd_cursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;Driver.c: 63: if(lineSensor_isWhiteLine1())
-"63
+[; ;Driver.c: 52: i2c_Command(0xE0,0x00,0x51);
+"52
+[e ( _i2c_Command (3 , , -> -> 224 `i `uc -> -> 0 `i `uc -> -> 81 `i `uc ]
+[; ;Driver.c: 53: i2c_Read(0xE0,0x02);
+"53
+[e ( _i2c_Read (2 , -> -> 224 `i `uc -> -> 2 `i `uc ]
+[; ;Driver.c: 56: place_lcd_cursor(5,1);
+"56
+[e ( _place_lcd_cursor (2 , -> -> 5 `i `uc -> -> 1 `i `uc ]
+[; ;Driver.c: 57: LCD_convertWrite(lineSensor_read(0));
+"57
+[e ( _LCD_convertWrite (1 -> ( _lineSensor_read (1 -> -> 0 `i `ui `uc ]
+[; ;Driver.c: 60: if(lineSensor_isWhiteLine1())
+"60
 [e $ ! != -> ( _lineSensor_isWhiteLine1 ..  `i -> -> -> 0 `i `uc `i 1182  ]
-[; ;Driver.c: 64: {
-"64
+[; ;Driver.c: 61: {
+"61
 {
-[; ;Driver.c: 65: LCD_writeChar('T');
-"65
+[; ;Driver.c: 62: place_lcd_cursor(8,1);
+"62
+[e ( _place_lcd_cursor (2 , -> -> 8 `i `uc -> -> 1 `i `uc ]
+[; ;Driver.c: 63: LCD_writeChar('T');
+"63
 [e ( _LCD_writeChar (1 -> -> 84 `ui `uc ]
-"66
+"64
 }
-[; ;Driver.c: 66: }
+[; ;Driver.c: 64: }
 [e $U 1183  ]
-"67
+"65
 [e :U 1182 ]
-[; ;Driver.c: 67: else
-[; ;Driver.c: 68: {
-"68
+[; ;Driver.c: 65: else
+[; ;Driver.c: 66: {
+"66
 {
-[; ;Driver.c: 69: LCD_writeChar('F');
-"69
+[; ;Driver.c: 67: LCD_writeChar('F');
+"67
 [e ( _LCD_writeChar (1 -> -> 70 `ui `uc ]
-"70
+"68
 }
 [e :U 1183 ]
-[; ;Driver.c: 70: }
-[; ;Driver.c: 72: _delay((unsigned long)((50)*(10000000/4000.0)));
-"72
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"75
+"70
 }
 [e :U 1179 ]
-"58
+"49
 [e $U 1180  ]
 [e :U 1181 ]
-[; ;Driver.c: 75: }
-[; ;Driver.c: 78: }
-"78
+[; ;Driver.c: 68: }
+[; ;Driver.c: 70: }
+[; ;Driver.c: 72: }
+"72
 [e :UE 1178 ]
 }
+[a 1C 83 116 97 114 116 0 ]
+
