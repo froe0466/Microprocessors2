@@ -16,8 +16,18 @@
 
 void main(void){
 
-    //ECCP Initialization
+    //ECCP Port Initialization
     EPWM_Port_Init();
+
+    //ECCP1 Init Sequence
+    EPWM1_Initialize();
+    TMR2_Initialize();
+
+    //ECCP2 Init Sequence
+    EPWM2_Initialize();
+    TMR4_Initialize();
+
+    Stop();
 
     //LCD Init Sequence
     LCD_init();
@@ -30,27 +40,31 @@ void main(void){
     //Line Sensor Initialization
     lineSensor_init();
 
-    //ECCP1 Init Sequence
-    EPWM1_Initialize();
-    TMR2_Initialize();
-    EPWM1_LoadDutyValue(60);
-    Switch_Direction1();
-    EPWM1_LoadDutyValue(60);
-    
-    //ECCP2 Init Sequence
-    EPWM2_Initialize();
-    TMR4_Initialize();
-    EPWM2_LoadDutyValue(60);
-    Switch_Direction2();
-    EPWM2_LoadDutyValue(60);
-
+   //Confirm that the Robot Initialization is complete
     LCD_write("Start");
- 
+
+    Drive_Forward(400,45);
+
+
+
     while(1)
     {
-      //Ultrasonic Sensor - Echo Command & Read
-      i2c_Command(0xE0,0x00,0x51);
-      i2c_Read(0xE0,0x02);
+        
+
+
+
+        /*
+        EPWM1_LoadDutyValue(60);
+        Switch_Direction1();
+        EPWM1_LoadDutyValue(60);
+
+        EPWM2_LoadDutyValue(60);
+        Switch_Direction2();
+        EPWM2_LoadDutyValue(60);
+
+          //Ultrasonic Sensor - Echo Command & Read
+          i2c_Command(0xE0,0x00,0x51);
+          i2c_Read(0xE0,0x02);
 
         //Read Line Sensor
         place_lcd_cursor(5,1);
@@ -66,7 +80,7 @@ void main(void){
         {
             LCD_writeChar('F');
         }
-     
+        */
     }
 
 }

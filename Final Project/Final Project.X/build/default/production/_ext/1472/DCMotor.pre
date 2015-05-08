@@ -10467,7 +10467,9 @@ typedef unsigned char bool;
 
 #pragma config EBTRB = OFF
 
-# 15 "../DCMotor.h"
+# 14 "../DCMotor.h"
+void EPWM_Port_Init(void);
+
 void EPWM1_Initialize (void);
 void EPWM1_LoadDutyValue(int dutyValue);
 void TMR2_Initialize(void);
@@ -10478,7 +10480,11 @@ void EPWM2_LoadDutyValue(int dutyValue);
 void TMR4_Initialize(void);
 void Switch_Direction2(void);
 
-void EPWM_Port_Init(void);
+void Stop(void);
+void Drive_Forward(unsigned char distance, int speed);
+void Drive_Reverse(unsigned char distance, int speed);
+void Turn_Left(unsigned char speed);
+void Turn_Right(unsigned char speed);
 
 # 6 "../DCMotor.c"
 void EPWM_Port_Init(void)
@@ -10534,7 +10540,7 @@ CCPR3H = 0x00;
 CCPTMRS0bits.C3TSEL = 0x0;
 
 
-CCP3CON = 0b01001100;
+CCP3CON = 0b11001100;
 
 }
 
@@ -10605,7 +10611,7 @@ CCPR2H = 0x00;
 CCPTMRS0bits.C2TSEL = 0x1;
 
 
-CCP2CON = 0b01001100;
+CCP2CON = 0b11001100;
 }
 
 void EPWM2_LoadDutyValue(int dutyValue)
@@ -10647,4 +10653,66 @@ EPWM2_LoadDutyValue(40);
 
 
 CCP2CON = CCP2CON ^ 0b10000000;
+}
+
+void Turn_Right(unsigned char speed)
+{
+CCP2CON = 0b11001100;
+CCP3CON = 0b11001100;
+
+EPWM1_LoadDutyValue(speed);
+EPWM2_LoadDutyValue(00);
+}
+
+void Turn_Left(unsigned char speed)
+{
+CCP2CON = 0b11001100;
+CCP3CON = 0b11001100;
+
+EPWM1_LoadDutyValue(speed);
+EPWM2_LoadDutyValue(45);
+}
+
+void Drive_Forward(unsigned char distance, int speed)
+{
+CCP2CON = 0b11001100;
+CCP3CON = 0b11001100;
+
+while(distance > 0)
+{
+EPWM1_LoadDutyValue(speed);
+EPWM2_LoadDutyValue(speed);
+
+_delay((unsigned long)((10)*(10000000/4000.0)));
+distance--;
+}
+Stop();
+}
+
+void Drive_Reverse(unsigned char distance, int speed)
+{
+CCP2CON = 0b01001100;
+CCP3CON = 0b01001100;
+
+while(distance > 0)
+{
+EPWM1_LoadDutyValue(speed);
+EPWM2_LoadDutyValue(speed);
+
+_delay((unsigned long)((10)*(10000000/4000.0)));
+distance--;
+}
+Stop();
+}
+
+void Stop()
+{
+
+
+CCP2CON = 0b11001100;
+CCP3CON = 0b11001100;
+
+EPWM1_LoadDutyValue(00);
+EPWM2_LoadDutyValue(00);
+
 }

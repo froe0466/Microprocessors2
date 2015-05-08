@@ -1,189 +1,98 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"7774 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"8404
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"47
-[v _ANSELA `Vuc ~T0 @X0 0 e@3896 ]
-"7906
-[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
-"8625
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"91
-[v _ANSELB `Vuc ~T0 @X0 0 e@3897 ]
-"2686
-[v _WPUB `Vuc ~T0 @X0 0 e@3937 ]
-"8044
-[s S489 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S489 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"8054
-[s S490 :1 `uc 1 ]
-[n S490 . LC0 ]
-"8057
-[s S491 :1 `uc 1 :1 `uc 1 ]
-[n S491 . . LC1 ]
-"8061
-[s S492 :2 `uc 1 :1 `uc 1 ]
-[n S492 . . LC2 ]
-"8065
-[s S493 :3 `uc 1 :1 `uc 1 ]
-[n S493 . . LC3 ]
-"8069
-[s S494 :4 `uc 1 :1 `uc 1 ]
-[n S494 . . LC4 ]
-"8073
-[s S495 :5 `uc 1 :1 `uc 1 ]
-[n S495 . . LC5 ]
-"8077
-[s S496 :6 `uc 1 :1 `uc 1 ]
-[n S496 . . LC6 ]
-"8081
-[s S497 :7 `uc 1 :1 `uc 1 ]
-[n S497 . . LC7 ]
-"8043
-[u S488 `S489 1 `S490 1 `S491 1 `S492 1 `S493 1 `S494 1 `S495 1 `S496 1 `S497 1 ]
-[n S488 . . . . . . . . . . ]
-"8086
-[v _LATCbits `VS488 ~T0 @X0 0 e@3979 ]
-"8857
-[s S531 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S531 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"8867
-[s S532 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S532 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"8856
-[u S530 `S531 1 `S532 1 ]
-[n S530 . . . ]
-"8878
-[v _TRISCbits `VS530 ~T0 @X0 0 e@3988 ]
-"146
-[s S6 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S6 . . ANSC2 ANSC3 ANSC4 ANSC5 ANSC6 ANSC7 ]
-"145
-[u S5 `S6 1 ]
-[n S5 . . ]
-"156
-[v _ANSELCbits `VS5 ~T0 @X0 0 e@3898 ]
-"8170
-[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
-"9067
-[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"190
-[v _ANSELD `Vuc ~T0 @X0 0 e@3899 ]
-"8302
-[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
-"9288
-[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
-"251
-[v _ANSELE `Vuc ~T0 @X0 0 e@3900 ]
-"17538
-[s S1106 :7 `uc 1 :1 `uc 1 ]
-[n S1106 . . NOT_RBPU ]
-"17542
-[s S1107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1107 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
-"17552
-[s S1108 :7 `uc 1 :1 `uc 1 ]
-[n S1108 . . RBPU ]
-"17537
-[u S1105 `S1106 1 `S1107 1 `S1108 1 ]
-[n S1105 . . . . ]
-"17557
-[v _INTCON2bits `VS1105 ~T0 @X0 0 e@4081 ]
-"2518
-[v _CCP3CON `Vuc ~T0 @X0 0 e@3933 ]
-"2208
-[v _ECCP3AS `Vuc ~T0 @X0 0 e@3931 ]
-"2449
-[v _PWM3CON `Vuc ~T0 @X0 0 e@3932 ]
-"2121
-[v _PSTR3CON `Vuc ~T0 @X0 0 e@3930 ]
-"2605
-[v _CCPR3L `Vuc ~T0 @X0 0 e@3934 ]
-"2624
-[v _CCPR3H `Vuc ~T0 @X0 0 e@3935 ]
-"1376
-[s S63 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :2 `uc 1 ]
-[n S63 . C1TSEL . C2TSEL . C3TSEL ]
-"1383
-[s S64 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S64 . C1TSEL0 C1TSEL1 . C2TSEL0 C2TSEL1 . C3TSEL0 C3TSEL1 ]
-"1375
-[u S62 `S63 1 `S64 1 ]
-[n S62 . . . ]
-"1394
-[v _CCPTMRS0bits `VS62 ~T0 @X0 0 e@3913 ]
-"13679
-[v _T2CON `Vuc ~T0 @X0 0 e@4026 ]
-"13749
-[v _PR2 `Vuc ~T0 @X0 0 e@4027 ]
-"13768
-[v _TMR2 `Vuc ~T0 @X0 0 e@4028 ]
-"9833
-[s S565 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S565 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
-"9842
-[s S566 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S566 . . SSPIF TXIF RCIF ]
-"9832
-[u S564 `S565 1 `S566 1 ]
-[n S564 . . . ]
-"9849
-[v _PIR1bits `VS564 ~T0 @X0 0 e@3998 ]
-"13685
-[s S810 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S810 . T2CKPS TMR2ON T2OUTPS ]
-"13690
-[s S811 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S811 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
-"13684
-[u S809 `S810 1 `S811 1 ]
-[n S809 . . . ]
-"13700
-[v _T2CONbits `VS809 ~T0 @X0 0 e@4026 ]
-"3270
-[v _CCP2CON `Vuc ~T0 @X0 0 e@3942 ]
-"2960
-[v _ECCP2AS `Vuc ~T0 @X0 0 e@3940 ]
-"3201
-[v _PWM2CON `Vuc ~T0 @X0 0 e@3941 ]
-"2785
-[v _PSTR2CON `Vuc ~T0 @X0 0 e@3939 ]
-"3357
-[v _CCPR2L `Vuc ~T0 @X0 0 e@3943 ]
-"3376
-[v _CCPR2H `Vuc ~T0 @X0 0 e@3944 ]
-"1799
-[v _T4CON `Vuc ~T0 @X0 0 e@3921 ]
-"1869
-[v _PR4 `Vuc ~T0 @X0 0 e@3922 ]
-"1888
-[v _TMR4 `Vuc ~T0 @X0 0 e@3923 ]
-"6295
-[s S395 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S395 . TMR4IF TMR5IF TMR6IF ]
-"6294
-[u S394 `S395 1 ]
-[n S394 . . ]
-"6301
-[v _PIR5bits `VS394 ~T0 @X0 0 e@3966 ]
-"1805
-[s S88 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S88 . T4CKPS TMR4ON T4OUTPS ]
-"1810
-[s S89 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S89 . T4CKPS0 T4CKPS1 . T4OUTPS0 T4OUTPS1 T4OUTPS2 T4OUTPS3 ]
-"1804
-[u S87 `S88 1 `S89 1 ]
-[n S87 . . . ]
-"1820
-[v _T4CONbits `VS87 ~T0 @X0 0 e@3921 ]
-[v F8800 `(v ~T0 @X0 1 tf1`ul ]
-"147 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18.h
-[v __delay `JF8800 ~T0 @X0 0 e ]
-[p i __delay ]
-"26 ../DCMotor.h
-[v _Stop `(v ~T0 @X0 0 ef ]
+"8415 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+[s S519 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S519 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"8425
+[s S520 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S520 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"8414
+[u S518 `S519 1 `S520 1 ]
+[n S518 . . . ]
+"8436
+[v _TRISAbits `VS518 ~T0 @X0 0 e@3986 ]
+"7780
+[s S469 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S469 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"7790
+[s S470 :1 `uc 1 ]
+[n S470 . LA0 ]
+"7793
+[s S471 :1 `uc 1 :1 `uc 1 ]
+[n S471 . . LA1 ]
+"7797
+[s S472 :2 `uc 1 :1 `uc 1 ]
+[n S472 . . LA2 ]
+"7801
+[s S473 :3 `uc 1 :1 `uc 1 ]
+[n S473 . . LA3 ]
+"7805
+[s S474 :4 `uc 1 :1 `uc 1 ]
+[n S474 . . LA4 ]
+"7809
+[s S475 :5 `uc 1 :1 `uc 1 ]
+[n S475 . . LA5 ]
+"7813
+[s S476 :6 `uc 1 :1 `uc 1 ]
+[n S476 . . LA6 ]
+"7817
+[s S477 :7 `uc 1 :1 `uc 1 ]
+[n S477 . . LA7 ]
+"7779
+[u S468 `S469 1 `S470 1 `S471 1 `S472 1 `S473 1 `S474 1 `S475 1 `S476 1 `S477 1 ]
+[n S468 . . . . . . . . . . ]
+"7822
+[v _LATAbits `VS468 ~T0 @X0 0 e@3977 ]
+"1443
+[v _T6CON `Vuc ~T0 @X0 0 e@3914 ]
+"1532
+[v _TMR6 `Vuc ~T0 @X0 0 e@3916 ]
+"6374
+[s S401 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S401 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"6384
+[s S402 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S402 . AN0 AN1 AN2 AN3 . AN4 ]
+"6392
+[s S403 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S403 . C12IN0M C12IN1M C2INP C1INP C1OUT C2OUT ]
+"6400
+[s S404 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S404 . C12IN0N C12IN1N VREFM VREFP T0CKI SS ]
+"6408
+[s S405 :5 `uc 1 :1 `uc 1 ]
+[n S405 . . NOT_SS ]
+"6412
+[s S406 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S406 . . VREFN . SRQ nSS ]
+"6419
+[s S407 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S407 . . CVREF . LVDIN ]
+"6425
+[s S408 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S408 . . DACOUT . HLVDIN ]
+"6431
+[s S409 :5 `uc 1 :1 `uc 1 ]
+[n S409 . . SS1 ]
+"6435
+[s S410 :5 `uc 1 :1 `uc 1 ]
+[n S410 . . NOT_SS1 ]
+"6439
+[s S411 :5 `uc 1 :1 `uc 1 ]
+[n S411 . . nSS1 ]
+"6443
+[s S412 :5 `uc 1 :1 `uc 1 ]
+[n S412 . . SRNQ ]
+"6447
+[s S413 :7 `uc 1 :1 `uc 1 ]
+[n S413 . . RJPU ]
+"6451
+[s S414 :1 `uc 1 ]
+[n S414 . ULPWUIN ]
+"6373
+[u S400 `S401 1 `S402 1 `S403 1 `S404 1 `S405 1 `S406 1 `S407 1 `S408 1 `S409 1 `S410 1 `S411 1 `S412 1 `S413 1 `S414 1 ]
+[n S400 . . . . . . . . . . . . . . . ]
+"6455
+[v _PORTAbits `VS400 ~T0 @X0 0 e@3968 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8464,470 +8373,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x EBTR3=OFF ]
 "72
 [p x EBTRB=OFF ]
-[; ;DCMotor.h: 14: void EPWM_Port_Init(void);
-[; ;DCMotor.h: 16: void EPWM1_Initialize (void);
-[; ;DCMotor.h: 17: void EPWM1_LoadDutyValue(int dutyValue);
-[; ;DCMotor.h: 18: void TMR2_Initialize(void);
-[; ;DCMotor.h: 19: void Switch_Direction1(void);
-[; ;DCMotor.h: 21: void EPWM2_Initialize (void);
-[; ;DCMotor.h: 22: void EPWM2_LoadDutyValue(int dutyValue);
-[; ;DCMotor.h: 23: void TMR4_Initialize(void);
-[; ;DCMotor.h: 24: void Switch_Direction2(void);
-[; ;DCMotor.h: 26: void Stop(void);
-[; ;DCMotor.h: 27: void Drive_Forward(unsigned char distance, int speed);
-[; ;DCMotor.h: 28: void Drive_Reverse(unsigned char distance, int speed);
-[; ;DCMotor.h: 29: void Turn_Left(unsigned char speed);
-[; ;DCMotor.h: 30: void Turn_Right(unsigned char speed);
-"6 ../DCMotor.c
-[v _EPWM_Port_Init `(v ~T0 @X0 1 ef ]
-"7
+[; ;SRF04.h: 15: void SRF04_Setup(void);
+[; ;SRF04.h: 16: void Send_Pulse(void);
+[; ;SRF04.h: 17: void Measure_Pulse(void);
+[; ;SRF04.h: 18: void SetTimer(void);
+[; ;SRF04.h: 19: void Wait4Timer(void);
+"5 ../SRF04.c
+[v _SRF04_Setup `(v ~T0 @X0 1 ef ]
 {
-[; ;DCMotor.c: 6: void EPWM_Port_Init(void)
-[; ;DCMotor.c: 7: {
-[e :U _EPWM_Port_Init ]
+[; ;SRF04.c: 5: void SRF04_Setup(){
+[e :U _SRF04_Setup ]
 [f ]
-[; ;DCMotor.c: 8: LATA = LATA & 0x00;
+[; ;SRF04.c: 7: TRISAbits.RA2 = 1;
+"7
+[e = . . _TRISAbits 1 2 -> -> 1 `i `uc ]
+[; ;SRF04.c: 8: TRISAbits.RA3 = 0;
 "8
-[e = _LATA -> & -> _LATA `i -> 0 `i `uc ]
-[; ;DCMotor.c: 9: TRISA = TRISA & 0xFF;
-"9
-[e = _TRISA -> & -> _TRISA `i -> 255 `i `uc ]
-[; ;DCMotor.c: 10: ANSELA = ANSELA & 0x2F;
+[e = . . _TRISAbits 1 3 -> -> 0 `i `uc ]
+[; ;SRF04.c: 10: TRISAbits.RA4 = 1;
 "10
-[e = _ANSELA -> & -> _ANSELA `i -> 47 `i `uc ]
-[; ;DCMotor.c: 12: LATB = LATB & 0x00;
-"12
-[e = _LATB -> & -> _LATB `i -> 0 `i `uc ]
-[; ;DCMotor.c: 13: TRISB = TRISB & 0xDF;
+[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
+[; ;SRF04.c: 11: TRISAbits.RA5 = 0;
+"11
+[e = . . _TRISAbits 1 5 -> -> 0 `i `uc ]
+[; ;SRF04.c: 13: LATAbits.LATA3 = 0;
 "13
-[e = _TRISB -> & -> _TRISB `i -> 223 `i `uc ]
-[; ;DCMotor.c: 14: ANSELB = ANSELB & 0x1F;
-"14
-[e = _ANSELB -> & -> _ANSELB `i -> 31 `i `uc ]
-[; ;DCMotor.c: 15: WPUB = 0x00;
+[e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
+[; ;SRF04.c: 15: LATAbits.LATA5 = 0;
 "15
-[e = _WPUB -> -> 0 `i `uc ]
-[; ;DCMotor.c: 17: LATCbits.LC1 = 0;
+[e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
+[; ;SRF04.c: 17: T6CON = 0b00000000;
 "17
-[e = . . _LATCbits 2 1 -> -> 0 `i `uc ]
-[; ;DCMotor.c: 18: TRISCbits.RC1 = 0;
-"18
-[e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-[; ;DCMotor.c: 19: ANSELCbits.ANSC2 = 0;
+[e = _T6CON -> -> 0 `i `uc ]
+[; ;SRF04.c: 19: }
 "19
-[e = . . _ANSELCbits 0 1 -> -> 0 `i `uc ]
-[; ;DCMotor.c: 21: LATD = LATD & 0x00;
-"21
-[e = _LATD -> & -> _LATD `i -> 0 `i `uc ]
-[; ;DCMotor.c: 22: TRISD = TRISD & 0xFB;
-"22
-[e = _TRISD -> & -> _TRISD `i -> 251 `i `uc ]
-[; ;DCMotor.c: 23: ANSELD = ANSELD & 0xFB;
-"23
-[e = _ANSELD -> & -> _ANSELD `i -> 251 `i `uc ]
-[; ;DCMotor.c: 25: LATE = LATE & 0x00;
-"25
-[e = _LATE -> & -> _LATE `i -> 0 `i `uc ]
-[; ;DCMotor.c: 26: TRISE = TRISE & 0x05;
-"26
-[e = _TRISE -> & -> _TRISE `i -> 5 `i `uc ]
-[; ;DCMotor.c: 27: ANSELE = ANSELE & 0x05;
-"27
-[e = _ANSELE -> & -> _ANSELE `i -> 5 `i `uc ]
-[; ;DCMotor.c: 29: INTCON2bits.nRBPU = 0x01;
-"29
-[e = . . _INTCON2bits 1 7 -> -> 1 `i `uc ]
-[; ;DCMotor.c: 30: }
-"30
 [e :UE 1178 ]
 }
-"33
-[v _EPWM1_Initialize `(v ~T0 @X0 1 ef ]
-"34
+"21
+[v _Send_Pulse `(v ~T0 @X0 1 ef ]
 {
-[; ;DCMotor.c: 33: void EPWM1_Initialize (void)
-[; ;DCMotor.c: 34: {
-[e :U _EPWM1_Initialize ]
+[; ;SRF04.c: 21: void Send_Pulse(void){
+[e :U _Send_Pulse ]
 [f ]
-[; ;DCMotor.c: 38: CCP3CON = 0xBC;
-"38
-[e = _CCP3CON -> -> 188 `i `uc ]
-[; ;DCMotor.c: 41: ECCP3AS = 0x00;
-"41
-[e = _ECCP3AS -> -> 0 `i `uc ]
-[; ;DCMotor.c: 44: PWM3CON = 0x80;
-"44
-[e = _PWM3CON -> -> 128 `i `uc ]
-[; ;DCMotor.c: 47: PSTR3CON = 0x00;
-"47
-[e = _PSTR3CON -> -> 0 `i `uc ]
-[; ;DCMotor.c: 50: CCPR3L = 0x7F;
-"50
-[e = _CCPR3L -> -> 127 `i `uc ]
-[; ;DCMotor.c: 53: CCPR3H = 0x00;
-"53
-[e = _CCPR3H -> -> 0 `i `uc ]
-[; ;DCMotor.c: 56: CCPTMRS0bits.C3TSEL = 0x0;
-"56
-[e = . . _CCPTMRS0bits 0 4 -> -> 0 `i `uc ]
-[; ;DCMotor.c: 59: CCP3CON = 0b11001100;
-"59
-[e = _CCP3CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 61: }
-"61
+[; ;SRF04.c: 23: TMR6 = 255;
+"23
+[e = _TMR6 -> -> 255 `i `uc ]
+[; ;SRF04.c: 24: PORTAbits.RA3 = 1;
+"24
+[e = . . _PORTAbits 0 3 -> -> 1 `i `uc ]
+[; ;SRF04.c: 26: }
+"26
 [e :UE 1179 ]
-}
-"63
-[v _EPWM1_LoadDutyValue `(v ~T0 @X0 1 ef1`i ]
-"64
-{
-[; ;DCMotor.c: 63: void EPWM1_LoadDutyValue(int dutyValue)
-[; ;DCMotor.c: 64: {
-[e :U _EPWM1_LoadDutyValue ]
-"63
-[v _dutyValue `i ~T0 @X0 1 r1 ]
-"64
-[f ]
-[; ;DCMotor.c: 65: dutyValue = dutyValue * 6.4;
-"65
-[e = _dutyValue -> * -> _dutyValue `d .6.4 `i ]
-[; ;DCMotor.c: 68: CCPR3L = ((dutyValue & 0x03FC)>>2);
-"68
-[e = _CCPR3L -> >> & _dutyValue -> 1020 `i -> 2 `i `uc ]
-[; ;DCMotor.c: 71: CCP3CON = (CCP3CON & 0xCF) | ((dutyValue & 0x0003)<<4);
-"71
-[e = _CCP3CON -> | & -> _CCP3CON `i -> 207 `i << & _dutyValue -> 3 `i -> 4 `i `uc ]
-[; ;DCMotor.c: 72: }
-"72
-[e :UE 1180 ]
-}
-"74
-[v _TMR2_Initialize `(v ~T0 @X0 1 ef ]
-"75
-{
-[; ;DCMotor.c: 74: void TMR2_Initialize(void)
-[; ;DCMotor.c: 75: {
-[e :U _TMR2_Initialize ]
-[f ]
-[; ;DCMotor.c: 79: T2CON = 0x00;
-"79
-[e = _T2CON -> -> 0 `i `uc ]
-[; ;DCMotor.c: 82: PR2 = 0xA0;
-"82
-[e = _PR2 -> -> 160 `i `uc ]
-[; ;DCMotor.c: 85: TMR2 = 0xFF;
-"85
-[e = _TMR2 -> -> 255 `i `uc ]
-[; ;DCMotor.c: 88: PIR1bits.TMR2IF = 0;
-"88
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-[; ;DCMotor.c: 91: T2CONbits.TMR2ON = 1;
-"91
-[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
-[; ;DCMotor.c: 92: }
-"92
-[e :UE 1181 ]
-}
-"94
-[v _Switch_Direction1 `(v ~T0 @X0 1 ef ]
-"95
-{
-[; ;DCMotor.c: 94: void Switch_Direction1(void)
-[; ;DCMotor.c: 95: {
-[e :U _Switch_Direction1 ]
-[f ]
-[; ;DCMotor.c: 97: EPWM1_LoadDutyValue(40);
-"97
-[e ( _EPWM1_LoadDutyValue (1 -> 40 `i ]
-[; ;DCMotor.c: 101: CCP3CON = CCP3CON ^ 0b10000000;
-"101
-[e = _CCP3CON -> ^ -> _CCP3CON `i -> 128 `i `uc ]
-[; ;DCMotor.c: 102: }
-"102
-[e :UE 1182 ]
-}
-"104
-[v _EPWM2_Initialize `(v ~T0 @X0 1 ef ]
-"105
-{
-[; ;DCMotor.c: 104: void EPWM2_Initialize (void)
-[; ;DCMotor.c: 105: {
-[e :U _EPWM2_Initialize ]
-[f ]
-[; ;DCMotor.c: 109: CCP2CON = 0xBC;
-"109
-[e = _CCP2CON -> -> 188 `i `uc ]
-[; ;DCMotor.c: 112: ECCP2AS = 0x00;
-"112
-[e = _ECCP2AS -> -> 0 `i `uc ]
-[; ;DCMotor.c: 115: PWM2CON = 0x80;
-"115
-[e = _PWM2CON -> -> 128 `i `uc ]
-[; ;DCMotor.c: 118: PSTR2CON = 0x00;
-"118
-[e = _PSTR2CON -> -> 0 `i `uc ]
-[; ;DCMotor.c: 121: CCPR2L = 0x7F;
-"121
-[e = _CCPR2L -> -> 127 `i `uc ]
-[; ;DCMotor.c: 124: CCPR2H = 0x00;
-"124
-[e = _CCPR2H -> -> 0 `i `uc ]
-[; ;DCMotor.c: 127: CCPTMRS0bits.C2TSEL = 0x1;
-"127
-[e = . . _CCPTMRS0bits 0 2 -> -> 1 `i `uc ]
-[; ;DCMotor.c: 130: CCP2CON = 0b11001100;
-"130
-[e = _CCP2CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 131: }
-"131
-[e :UE 1183 ]
-}
-"133
-[v _EPWM2_LoadDutyValue `(v ~T0 @X0 1 ef1`i ]
-"134
-{
-[; ;DCMotor.c: 133: void EPWM2_LoadDutyValue(int dutyValue)
-[; ;DCMotor.c: 134: {
-[e :U _EPWM2_LoadDutyValue ]
-"133
-[v _dutyValue `i ~T0 @X0 1 r1 ]
-"134
-[f ]
-[; ;DCMotor.c: 135: dutyValue = dutyValue * 6.4;
-"135
-[e = _dutyValue -> * -> _dutyValue `d .6.4 `i ]
-[; ;DCMotor.c: 138: CCPR2L = ((dutyValue & 0x03FC)>>2);
-"138
-[e = _CCPR2L -> >> & _dutyValue -> 1020 `i -> 2 `i `uc ]
-[; ;DCMotor.c: 141: CCP2CON = (CCP2CON & 0xCF) | ((dutyValue & 0x0003)<<4);
-"141
-[e = _CCP2CON -> | & -> _CCP2CON `i -> 207 `i << & _dutyValue -> 3 `i -> 4 `i `uc ]
-[; ;DCMotor.c: 142: }
-"142
-[e :UE 1184 ]
-}
-"144
-[v _TMR4_Initialize `(v ~T0 @X0 1 ef ]
-"145
-{
-[; ;DCMotor.c: 144: void TMR4_Initialize(void)
-[; ;DCMotor.c: 145: {
-[e :U _TMR4_Initialize ]
-[f ]
-[; ;DCMotor.c: 149: T4CON = 0x00;
-"149
-[e = _T4CON -> -> 0 `i `uc ]
-[; ;DCMotor.c: 152: PR4 = 0xA0;
-"152
-[e = _PR4 -> -> 160 `i `uc ]
-[; ;DCMotor.c: 155: TMR4 = 0xFF;
-"155
-[e = _TMR4 -> -> 255 `i `uc ]
-[; ;DCMotor.c: 158: PIR5bits.TMR4IF = 0;
-"158
-[e = . . _PIR5bits 0 0 -> -> 0 `i `uc ]
-[; ;DCMotor.c: 161: T4CONbits.TMR4ON = 1;
-"161
-[e = . . _T4CONbits 0 1 -> -> 1 `i `uc ]
-[; ;DCMotor.c: 162: }
-"162
-[e :UE 1185 ]
-}
-"164
-[v _Switch_Direction2 `(v ~T0 @X0 1 ef ]
-"165
-{
-[; ;DCMotor.c: 164: void Switch_Direction2(void)
-[; ;DCMotor.c: 165: {
-[e :U _Switch_Direction2 ]
-[f ]
-[; ;DCMotor.c: 167: EPWM2_LoadDutyValue(40);
-"167
-[e ( _EPWM2_LoadDutyValue (1 -> 40 `i ]
-[; ;DCMotor.c: 171: CCP2CON = CCP2CON ^ 0b10000000;
-"171
-[e = _CCP2CON -> ^ -> _CCP2CON `i -> 128 `i `uc ]
-[; ;DCMotor.c: 172: }
-"172
-[e :UE 1186 ]
-}
-"174
-[v _Turn_Right `(v ~T0 @X0 1 ef1`uc ]
-"175
-{
-[; ;DCMotor.c: 174: void Turn_Right(unsigned char speed)
-[; ;DCMotor.c: 175: {
-[e :U _Turn_Right ]
-"174
-[v _speed `uc ~T0 @X0 1 r1 ]
-"175
-[f ]
-[; ;DCMotor.c: 176: CCP2CON = 0b11001100;
-"176
-[e = _CCP2CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 177: CCP3CON = 0b11001100;
-"177
-[e = _CCP3CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 179: EPWM1_LoadDutyValue(speed);
-"179
-[e ( _EPWM1_LoadDutyValue (1 -> _speed `i ]
-[; ;DCMotor.c: 180: EPWM2_LoadDutyValue(00);
-"180
-[e ( _EPWM2_LoadDutyValue (1 -> 0 `i ]
-[; ;DCMotor.c: 181: }
-"181
-[e :UE 1187 ]
-}
-"183
-[v _Turn_Left `(v ~T0 @X0 1 ef1`uc ]
-"184
-{
-[; ;DCMotor.c: 183: void Turn_Left(unsigned char speed)
-[; ;DCMotor.c: 184: {
-[e :U _Turn_Left ]
-"183
-[v _speed `uc ~T0 @X0 1 r1 ]
-"184
-[f ]
-[; ;DCMotor.c: 185: CCP2CON = 0b11001100;
-"185
-[e = _CCP2CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 186: CCP3CON = 0b11001100;
-"186
-[e = _CCP3CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 188: EPWM1_LoadDutyValue(speed);
-"188
-[e ( _EPWM1_LoadDutyValue (1 -> _speed `i ]
-[; ;DCMotor.c: 189: EPWM2_LoadDutyValue(45);
-"189
-[e ( _EPWM2_LoadDutyValue (1 -> 45 `i ]
-[; ;DCMotor.c: 190: }
-"190
-[e :UE 1188 ]
-}
-"192
-[v _Drive_Forward `(v ~T0 @X0 1 ef2`uc`i ]
-"193
-{
-[; ;DCMotor.c: 192: void Drive_Forward(unsigned char distance, int speed)
-[; ;DCMotor.c: 193: {
-[e :U _Drive_Forward ]
-"192
-[v _distance `uc ~T0 @X0 1 r1 ]
-[v _speed `i ~T0 @X0 1 r2 ]
-"193
-[f ]
-[; ;DCMotor.c: 194: CCP2CON = 0b11001100;
-"194
-[e = _CCP2CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 195: CCP3CON = 0b11001100;
-"195
-[e = _CCP3CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 197: while(distance > 0)
-"197
-[e $U 1190  ]
-[e :U 1191 ]
-[; ;DCMotor.c: 198: {
-"198
-{
-[; ;DCMotor.c: 199: EPWM1_LoadDutyValue(speed);
-"199
-[e ( _EPWM1_LoadDutyValue (1 _speed ]
-[; ;DCMotor.c: 200: EPWM2_LoadDutyValue(speed);
-"200
-[e ( _EPWM2_LoadDutyValue (1 _speed ]
-[; ;DCMotor.c: 202: _delay((unsigned long)((10)*(10000000/4000.0)));
-"202
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-[; ;DCMotor.c: 203: distance--;
-"203
-[e -- _distance -> -> 1 `i `uc ]
-"204
-}
-[e :U 1190 ]
-"197
-[e $ > -> _distance `i -> 0 `i 1191  ]
-[e :U 1192 ]
-[; ;DCMotor.c: 204: }
-[; ;DCMotor.c: 205: Stop();
-"205
-[e ( _Stop ..  ]
-[; ;DCMotor.c: 206: }
-"206
-[e :UE 1189 ]
-}
-"208
-[v _Drive_Reverse `(v ~T0 @X0 1 ef2`uc`i ]
-"209
-{
-[; ;DCMotor.c: 208: void Drive_Reverse(unsigned char distance, int speed)
-[; ;DCMotor.c: 209: {
-[e :U _Drive_Reverse ]
-"208
-[v _distance `uc ~T0 @X0 1 r1 ]
-[v _speed `i ~T0 @X0 1 r2 ]
-"209
-[f ]
-[; ;DCMotor.c: 210: CCP2CON = 0b01001100;
-"210
-[e = _CCP2CON -> -> 76 `i `uc ]
-[; ;DCMotor.c: 211: CCP3CON = 0b01001100;
-"211
-[e = _CCP3CON -> -> 76 `i `uc ]
-[; ;DCMotor.c: 213: while(distance > 0)
-"213
-[e $U 1194  ]
-[e :U 1195 ]
-[; ;DCMotor.c: 214: {
-"214
-{
-[; ;DCMotor.c: 215: EPWM1_LoadDutyValue(speed);
-"215
-[e ( _EPWM1_LoadDutyValue (1 _speed ]
-[; ;DCMotor.c: 216: EPWM2_LoadDutyValue(speed);
-"216
-[e ( _EPWM2_LoadDutyValue (1 _speed ]
-[; ;DCMotor.c: 218: _delay((unsigned long)((10)*(10000000/4000.0)));
-"218
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-[; ;DCMotor.c: 219: distance--;
-"219
-[e -- _distance -> -> 1 `i `uc ]
-"220
-}
-[e :U 1194 ]
-"213
-[e $ > -> _distance `i -> 0 `i 1195  ]
-[e :U 1196 ]
-[; ;DCMotor.c: 220: }
-[; ;DCMotor.c: 221: Stop();
-"221
-[e ( _Stop ..  ]
-[; ;DCMotor.c: 222: }
-"222
-[e :UE 1193 ]
-}
-"224
-[v _Stop `(v ~T0 @X0 1 ef ]
-"225
-{
-[; ;DCMotor.c: 224: void Stop()
-[; ;DCMotor.c: 225: {
-[e :U _Stop ]
-[f ]
-[; ;DCMotor.c: 228: CCP2CON = 0b11001100;
-"228
-[e = _CCP2CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 229: CCP3CON = 0b11001100;
-"229
-[e = _CCP3CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 231: EPWM1_LoadDutyValue(00);
-"231
-[e ( _EPWM1_LoadDutyValue (1 -> 0 `i ]
-[; ;DCMotor.c: 232: EPWM2_LoadDutyValue(00);
-"232
-[e ( _EPWM2_LoadDutyValue (1 -> 0 `i ]
-[; ;DCMotor.c: 234: }
-"234
-[e :UE 1197 ]
 }

@@ -56,7 +56,7 @@ void EPWM1_Initialize (void)
     CCPTMRS0bits.C3TSEL = 0x0;
 
     //Initialize at Forward mode
-    CCP3CON = 0b01001100;
+    CCP3CON = 0b11001100;
     
 }
 
@@ -127,7 +127,7 @@ void EPWM2_Initialize (void)
     CCPTMRS0bits.C2TSEL = 0x1;
 
     //Initialize at Forward mode
-    CCP2CON = 0b01001100; ///CHECK TO MAKE SURE THIS IS WORKING
+    CCP2CON = 0b11001100; ///CHECK TO MAKE SURE THIS IS WORKING
 }
 
 void EPWM2_LoadDutyValue(int dutyValue)
@@ -169,4 +169,66 @@ void Switch_Direction2(void)
     //Toggle Bit 8 in the CCP1CON register to change bwteen
     //forward and reverse mode
     CCP2CON = CCP2CON ^ 0b10000000; //////CHECK TO MAKE SURE THAT THIS WORKS!!!!!
+}
+
+void Turn_Right(unsigned char speed)
+{
+    CCP2CON = 0b11001100;
+    CCP3CON = 0b11001100;
+    
+    EPWM1_LoadDutyValue(speed);
+    EPWM2_LoadDutyValue(00);
+}
+
+void Turn_Left(unsigned char speed)
+{
+    CCP2CON = 0b11001100;
+    CCP3CON = 0b11001100;
+
+    EPWM1_LoadDutyValue(speed);
+    EPWM2_LoadDutyValue(45);
+}
+
+void Drive_Forward(unsigned char distance, int speed)
+{
+    CCP2CON = 0b11001100;
+    CCP3CON = 0b11001100;
+
+    while(distance > 0)
+    {
+        EPWM1_LoadDutyValue(speed);
+        EPWM2_LoadDutyValue(speed);
+
+        __delay_ms(10);
+        distance--;
+    }
+    Stop();
+}
+
+void Drive_Reverse(unsigned char distance, int speed)
+{
+    CCP2CON = 0b01001100;
+    CCP3CON = 0b01001100;
+
+    while(distance > 0)
+    {
+        EPWM1_LoadDutyValue(speed);
+        EPWM2_LoadDutyValue(speed);
+
+        __delay_ms(10);
+        distance--;
+    }
+    Stop();
+}
+
+void Stop()
+{
+    //Should be a conditional statement
+
+    CCP2CON = 0b11001100;
+    CCP3CON = 0b11001100;
+
+    EPWM1_LoadDutyValue(00);
+    EPWM2_LoadDutyValue(00);
+
 }

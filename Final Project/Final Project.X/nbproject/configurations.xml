@@ -9,6 +9,7 @@
       <itemPath>../DCMotor.h</itemPath>
       <itemPath>../i2c.h</itemPath>
       <itemPath>../LineSensor.h</itemPath>
+      <itemPath>../SRF04.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -22,6 +23,7 @@
       <itemPath>../LCD.c</itemPath>
       <itemPath>../i2c.c</itemPath>
       <itemPath>../LineSensor.c</itemPath>
+      <itemPath>../SRF04.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
