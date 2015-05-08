@@ -24,18 +24,67 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lineSensor_init `(v ~T0 @X0 0 ef ]
 "21 ../LCD.h
 [v _LCD_write `(v ~T0 @X0 0 ef1`*uc ]
-"27 ../DCMotor.h
-[v _Drive_Forward `(v ~T0 @X0 0 ef2`uc`i ]
-"29
-[v _Turn_Left `(v ~T0 @X0 0 ef1`uc ]
-"30
-[v _Turn_Right `(v ~T0 @X0 0 ef1`uc ]
-"22 ../i2c.h
-[v _i2c_Command `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"23
-[v _i2c_Read `(uc ~T0 @X0 0 ef2`uc`uc ]
-"22 ../LCD.h
-[v _LCD_writeChar `(v ~T0 @X0 0 ef1`uc ]
+"16 ../SRF04.h
+[v _Send_Pulse `(v ~T0 @X0 0 ef ]
+"6374 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+[s S401 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S401 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"6384
+[s S402 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S402 . AN0 AN1 AN2 AN3 . AN4 ]
+"6392
+[s S403 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S403 . C12IN0M C12IN1M C2INP C1INP C1OUT C2OUT ]
+"6400
+[s S404 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S404 . C12IN0N C12IN1N VREFM VREFP T0CKI SS ]
+"6408
+[s S405 :5 `uc 1 :1 `uc 1 ]
+[n S405 . . NOT_SS ]
+"6412
+[s S406 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S406 . . VREFN . SRQ nSS ]
+"6419
+[s S407 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S407 . . CVREF . LVDIN ]
+"6425
+[s S408 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S408 . . DACOUT . HLVDIN ]
+"6431
+[s S409 :5 `uc 1 :1 `uc 1 ]
+[n S409 . . SS1 ]
+"6435
+[s S410 :5 `uc 1 :1 `uc 1 ]
+[n S410 . . NOT_SS1 ]
+"6439
+[s S411 :5 `uc 1 :1 `uc 1 ]
+[n S411 . . nSS1 ]
+"6443
+[s S412 :5 `uc 1 :1 `uc 1 ]
+[n S412 . . SRNQ ]
+"6447
+[s S413 :7 `uc 1 :1 `uc 1 ]
+[n S413 . . RJPU ]
+"6451
+[s S414 :1 `uc 1 ]
+[n S414 . ULPWUIN ]
+"6373
+[u S400 `S401 1 `S402 1 `S403 1 `S404 1 `S405 1 `S406 1 `S407 1 `S408 1 `S409 1 `S410 1 `S411 1 `S412 1 `S413 1 `S414 1 ]
+[n S400 . . . . . . . . . . . . . . . ]
+"6455
+[v _PORTAbits `VS400 ~T0 @X0 0 e@3968 ]
+"17 ../SRF04.h
+[v _Measure_Pulse `(v ~T0 @X0 0 ef ]
+"16513 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
+"16494
+[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
+"24 ../LCD.h
+[v _LCD_convertWrite `(v ~T0 @X0 0 ef1`uc ]
+[v F8800 `(v ~T0 @X0 1 tf1`ul ]
+"147 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18.h
+[v __delay `JF8800 ~T0 @X0 0 e ]
+[p i __delay ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8349,126 +8398,97 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LineSensor.h: 19: int lineSensor_read(unsigned int Channel);
 [; ;LineSensor.h: 20: bool lineSensor_isWhiteLine1(void);
 [; ;LineSensor.h: 21: bool lineSensor_isWhiteLine2(void);
-"17 ../Driver.c
+[; ;SRF04.h: 15: void SRF04_Setup(void);
+[; ;SRF04.h: 16: void Send_Pulse(void);
+[; ;SRF04.h: 17: void Measure_Pulse(void);
+[; ;SRF04.h: 18: void SetTimer(void);
+[; ;SRF04.h: 19: void Wait4Timer(void);
+"18 ../Driver.c
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Driver.c: 17: void main(void){
+[; ;Driver.c: 18: void main(void){
 [e :U _main ]
 [f ]
-[; ;Driver.c: 20: EPWM_Port_Init();
-"20
+[; ;Driver.c: 21: EPWM_Port_Init();
+"21
 [e ( _EPWM_Port_Init ..  ]
-[; ;Driver.c: 23: EPWM1_Initialize();
-"23
-[e ( _EPWM1_Initialize ..  ]
-[; ;Driver.c: 24: TMR2_Initialize();
+[; ;Driver.c: 24: EPWM1_Initialize();
 "24
+[e ( _EPWM1_Initialize ..  ]
+[; ;Driver.c: 25: TMR2_Initialize();
+"25
 [e ( _TMR2_Initialize ..  ]
-[; ;Driver.c: 27: EPWM2_Initialize();
-"27
-[e ( _EPWM2_Initialize ..  ]
-[; ;Driver.c: 28: TMR4_Initialize();
+[; ;Driver.c: 28: EPWM2_Initialize();
 "28
+[e ( _EPWM2_Initialize ..  ]
+[; ;Driver.c: 29: TMR4_Initialize();
+"29
 [e ( _TMR4_Initialize ..  ]
-[; ;Driver.c: 30: Stop();
-"30
+[; ;Driver.c: 31: Stop();
+"31
 [e ( _Stop ..  ]
-[; ;Driver.c: 33: LCD_init();
-"33
-[e ( _LCD_init ..  ]
-[; ;Driver.c: 34: place_lcd_cursor(0,0);
+[; ;Driver.c: 34: LCD_init();
 "34
+[e ( _LCD_init ..  ]
+[; ;Driver.c: 35: place_lcd_cursor(0,0);
+"35
 [e ( _place_lcd_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;Driver.c: 37: i2c_Port_Init();
-"37
-[e ( _i2c_Port_Init ..  ]
-[; ;Driver.c: 38: i2c_Init();
+[; ;Driver.c: 38: i2c_Port_Init();
 "38
+[e ( _i2c_Port_Init ..  ]
+[; ;Driver.c: 39: i2c_Init();
+"39
 [e ( _i2c_Init ..  ]
-[; ;Driver.c: 41: lineSensor_init();
-"41
+[; ;Driver.c: 42: lineSensor_init();
+"42
 [e ( _lineSensor_init ..  ]
-[; ;Driver.c: 44: LCD_write("Start");
-"44
+[; ;Driver.c: 45: LCD_write("Start");
+"45
 [e ( _LCD_write (1 -> :s 1C `*uc ]
-[; ;Driver.c: 46: Drive_Forward(100,45);
-"46
-[e ( _Drive_Forward (2 , -> -> 100 `i `uc -> 45 `i ]
-[; ;Driver.c: 48: Stop();
 "48
-[e ( _Stop ..  ]
-[; ;Driver.c: 50: Turn_Left(60);
-"50
-[e ( _Turn_Left (1 -> -> 60 `i `uc ]
-[; ;Driver.c: 52: Stop();
-"52
-[e ( _Stop ..  ]
-[; ;Driver.c: 54: Turn_Right(60);
-"54
-[e ( _Turn_Right (1 -> -> 60 `i `uc ]
-[; ;Driver.c: 57: while(1)
-"57
+[v _range `i ~T0 @X0 1 a ]
+[; ;Driver.c: 48: int range =0;
+[e = _range -> 0 `i ]
+[; ;Driver.c: 49: while(1)
+"49
 [e :U 1180 ]
-[; ;Driver.c: 58: {
-"58
+[; ;Driver.c: 50: {
+"50
 {
-"59
-[v _readResult `uc ~T0 @X0 1 a ]
-[; ;Driver.c: 59: char readResult = 0;
-[e = _readResult -> -> 0 `i `uc ]
-[; ;Driver.c: 62: i2c_Command(0xE0,0x00,0x51);
-"62
-[e ( _i2c_Command (3 , , -> -> 224 `i `uc -> -> 0 `i `uc -> -> 81 `i `uc ]
-[; ;Driver.c: 63: readResult = i2c_Read(0xE0,0x02);
-"63
-[e = _readResult ( _i2c_Read (2 , -> -> 224 `i `uc -> -> 2 `i `uc ]
-[; ;Driver.c: 66: if(readResult > 15)
-"66
-[e $ ! > -> _readResult `i -> 15 `i 1182  ]
-[; ;Driver.c: 67: {
-"67
-{
-[; ;Driver.c: 68: place_lcd_cursor(8,1);
-"68
-[e ( _place_lcd_cursor (2 , -> -> 8 `i `uc -> -> 1 `i `uc ]
-[; ;Driver.c: 69: LCD_writeChar('T');
-"69
-[e ( _LCD_writeChar (1 -> -> 84 `ui `uc ]
-[; ;Driver.c: 71: Drive_Forward(50,55);
-"71
-[e ( _Drive_Forward (2 , -> -> 50 `i `uc -> 55 `i ]
-"74
-}
-[; ;Driver.c: 74: }
-[e $U 1183  ]
-"75
-[e :U 1182 ]
-[; ;Driver.c: 75: else
-[; ;Driver.c: 76: {
-"76
-{
-[; ;Driver.c: 77: place_lcd_cursor(8,1);
-"77
-[e ( _place_lcd_cursor (2 , -> -> 8 `i `uc -> -> 1 `i `uc ]
-[; ;Driver.c: 78: LCD_writeChar('F');
-"78
-[e ( _LCD_writeChar (1 -> -> 70 `ui `uc ]
-[; ;Driver.c: 80: Turn_Left(55);
-"80
-[e ( _Turn_Left (1 -> -> 55 `i `uc ]
-"81
-}
+[; ;Driver.c: 51: Send_Pulse();
+"51
+[e ( _Send_Pulse ..  ]
+[; ;Driver.c: 52: while(PORTAbits.RA3 = 0);
+"52
+[e $U 1182  ]
 [e :U 1183 ]
-"112
+[e :U 1182 ]
+[e $ != -> = . . _PORTAbits 0 3 -> -> 0 `i `uc `i -> -> -> 0 `i `Vuc `i 1183  ]
+[e :U 1184 ]
+[; ;Driver.c: 53: Measure_Pulse();
+"53
+[e ( _Measure_Pulse ..  ]
+[; ;Driver.c: 55: range =((TMR1H << 8) + TMR1L) / 58;
+"55
+[e = _range / + << -> _TMR1H `i -> 8 `i -> _TMR1L `i -> 58 `i ]
+[; ;Driver.c: 57: place_lcd_cursor(0,1);
+"57
+[e ( _place_lcd_cursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;Driver.c: 58: LCD_convertWrite(range);
+"58
+[e ( _LCD_convertWrite (1 -> _range `uc ]
+[; ;Driver.c: 60: _delay((unsigned long)((50)*(10000000/4000.0)));
+"60
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"113
 }
 [e :U 1179 ]
-"57
+"49
 [e $U 1180  ]
 [e :U 1181 ]
-[; ;Driver.c: 81: }
-[; ;Driver.c: 112: }
-[; ;Driver.c: 114: }
-"114
+[; ;Driver.c: 113: }
+[; ;Driver.c: 115: }
+"115
 [e :UE 1178 ]
 }
 [a 1C 83 116 97 114 116 0 ]

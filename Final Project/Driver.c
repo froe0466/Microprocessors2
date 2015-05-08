@@ -13,6 +13,7 @@
 #include "DCMotor.h"
 #include "i2c.h"
 #include "LineSensor.h"
+#include "SRF04.h"
 
 void main(void){
 
@@ -43,20 +44,24 @@ void main(void){
    //Confirm that the Robot Initialization is complete
     LCD_write("Start");
 
-    Drive_Forward(100,45);
-
-    Stop();
-
-   Turn_Left(60);
-
-       Stop();
-
-   Turn_Right(60);
-
-
+   // SRF04_Setup();
+    int range =0;
     while(1)
     {
-       char readResult = 0;
+       Send_Pulse();
+       while(PORTAbits.RA3 = 0);
+       Measure_Pulse();
+
+       range =((TMR1H << 8) + TMR1L) / 58;
+
+       place_lcd_cursor(0,1);
+       LCD_convertWrite(range);
+
+        __delay_ms(50);
+
+       /*
+        //Drive Routine
+        char readResult = 0;
 
         //Ultrasonic Sensor - Echo Command & Read
         i2c_Command(0xE0,0x00,0x51);
@@ -69,8 +74,6 @@ void main(void){
             LCD_writeChar('T');
 
             Drive_Forward(50,55);
-
-
         }
         else
         {
@@ -79,9 +82,7 @@ void main(void){
 
             Turn_Left(55);
         }
-
-
-        /*
+ 
         EPWM1_LoadDutyValue(60);
         Switch_Direction1();
         EPWM1_LoadDutyValue(60);

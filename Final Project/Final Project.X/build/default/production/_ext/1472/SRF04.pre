@@ -10477,23 +10477,43 @@ void Wait4Timer(void);
 # 5 "../SRF04.c"
 void SRF04_Setup(){
 
-TRISAbits.RA2 = 1;
-TRISAbits.RA3 = 0;
+TRISAbits.RA2 = 0;
+TRISAbits.RA3 = 1;
 
-TRISAbits.RA4 = 1;
-TRISAbits.RA5 = 0;
+TRISAbits.RA4 = 0;
+TRISAbits.RA5 = 1;
 
 LATAbits.LATA3 = 0;
-
 LATAbits.LATA5 = 0;
 
-T6CON = 0b00000000;
 
+T1CON = 0b00000000;
 }
 
 void Send_Pulse(void){
 
-TMR6 = 255;
-PORTAbits.RA3 = 1;
+TMR1H = 255;
+TMR1L = 253;
+
+PORTAbits.RA2 = 1;
+
+PIR1bits.TMR1IF = 0;
+
+T1CONbits.TMR1ON = 1;
+
+while(PIR1bits.TMR1IF == 0);
+
+T1CONbits.TMR1ON =0;
+PORTAbits.RA2 = 0;
+
+TMR1H = 0;
+TMR1L = 0;
+}
+
+void Measure_Pulse(void)
+{
+T1CONbits.TMR1ON = 1;
+while(PORTAbits.RA3 = 0);
+T1CONbits.TMR1ON = 0;
 
 }

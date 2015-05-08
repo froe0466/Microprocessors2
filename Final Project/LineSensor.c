@@ -7,7 +7,6 @@ char whiteLineThreshold = 125;
 void lineSensor_init()
 {
     ADCON2=0b10001010;
-
 }
 
 int lineSensor_read(unsigned int Channel)

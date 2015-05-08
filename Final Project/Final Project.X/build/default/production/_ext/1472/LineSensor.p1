@@ -9,7 +9,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _GODONE `Vb ~T0 @X0 0 e@32273 ]
 "14179
 [v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
-"31 ../LineSensor.c
+"30 ../LineSensor.c
 [c E8056 0 1 .. ]
 [n E8056 _BOOL FALSE TRUE  ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
@@ -8313,102 +8313,102 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LineSensor.c: 9: ADCON2=0b10001010;
 "9
 [e = _ADCON2 -> -> 138 `i `uc ]
-[; ;LineSensor.c: 11: }
-"11
+[; ;LineSensor.c: 10: }
+"10
 [e :UE 1178 ]
 }
-"13
+"12
 [v _lineSensor_read `(i ~T0 @X0 1 ef1`ui ]
-"14
-{
-[; ;LineSensor.c: 13: int lineSensor_read(unsigned int Channel)
-[; ;LineSensor.c: 14: {
-[e :U _lineSensor_read ]
 "13
+{
+[; ;LineSensor.c: 12: int lineSensor_read(unsigned int Channel)
+[; ;LineSensor.c: 13: {
+[e :U _lineSensor_read ]
+"12
 [v _Channel `ui ~T0 @X0 1 r1 ]
-"14
+"13
 [f ]
-[; ;LineSensor.c: 15: ADCON0=0x00;
-"15
+[; ;LineSensor.c: 14: ADCON0=0x00;
+"14
 [e = _ADCON0 -> -> 0 `i `uc ]
-[; ;LineSensor.c: 16: ADCON0=(Channel<<2);
-"16
+[; ;LineSensor.c: 15: ADCON0=(Channel<<2);
+"15
 [e = _ADCON0 -> << _Channel -> 2 `i `uc ]
-[; ;LineSensor.c: 18: ADON=1;
-"18
+[; ;LineSensor.c: 17: ADON=1;
+"17
 [e = _ADON -> -> 1 `i `b ]
-[; ;LineSensor.c: 20: GODONE=1;
-"20
+[; ;LineSensor.c: 19: GODONE=1;
+"19
 [e = _GODONE -> -> 1 `i `b ]
-[; ;LineSensor.c: 22: while(GODONE);
-"22
+[; ;LineSensor.c: 21: while(GODONE);
+"21
 [e $U 1180  ]
 [e :U 1181 ]
 [e :U 1180 ]
 [e $ _GODONE 1181  ]
 [e :U 1182 ]
-[; ;LineSensor.c: 24: ADON=0;
-"24
+[; ;LineSensor.c: 23: ADON=0;
+"23
 [e = _ADON -> -> 0 `i `b ]
-[; ;LineSensor.c: 26: return ADRESL;
-"26
+[; ;LineSensor.c: 25: return ADRESL;
+"25
 [e ) -> _ADRESL `i ]
 [e $UE 1179  ]
-[; ;LineSensor.c: 27: }
-"27
+[; ;LineSensor.c: 26: }
+"26
 [e :UE 1179 ]
 }
-"29
+"28
 [v _lineSensor_isWhiteLine1 `(uc ~T0 @X0 1 ef ]
-"30
+"29
 {
-[; ;LineSensor.c: 29: bool lineSensor_isWhiteLine1()
-[; ;LineSensor.c: 30: {
+[; ;LineSensor.c: 28: bool lineSensor_isWhiteLine1()
+[; ;LineSensor.c: 29: {
 [e :U _lineSensor_isWhiteLine1 ]
 [f ]
-"31
+"30
 [v _isWhiteLine `uc ~T0 @X0 1 a ]
-[; ;LineSensor.c: 31: bool isWhiteLine = FALSE;
+[; ;LineSensor.c: 30: bool isWhiteLine = FALSE;
 [e = _isWhiteLine -> . `E8056 0 `uc ]
-[; ;LineSensor.c: 33: if (lineSensor_read(0) < whiteLineThreshold) {isWhiteLine = TRUE;}
-"33
+[; ;LineSensor.c: 32: if (lineSensor_read(0) < whiteLineThreshold) {isWhiteLine = TRUE;}
+"32
 [e $ ! < ( _lineSensor_read (1 -> -> 0 `i `ui -> _whiteLineThreshold `i 1184  ]
 {
 [e = _isWhiteLine -> . `E8056 1 `uc ]
 }
 [e :U 1184 ]
-[; ;LineSensor.c: 35: return isWhiteLine;
-"35
+[; ;LineSensor.c: 34: return isWhiteLine;
+"34
 [e ) _isWhiteLine ]
 [e $UE 1183  ]
-[; ;LineSensor.c: 36: }
-"36
+[; ;LineSensor.c: 35: }
+"35
 [e :UE 1183 ]
 }
-"38
+"37
 [v _lineSensor_isWhiteLine2 `(uc ~T0 @X0 1 ef ]
-"39
+"38
 {
-[; ;LineSensor.c: 38: bool lineSensor_isWhiteLine2()
-[; ;LineSensor.c: 39: {
+[; ;LineSensor.c: 37: bool lineSensor_isWhiteLine2()
+[; ;LineSensor.c: 38: {
 [e :U _lineSensor_isWhiteLine2 ]
 [f ]
-"40
+"39
 [v _isWhiteLine `uc ~T0 @X0 1 a ]
-[; ;LineSensor.c: 40: bool isWhiteLine = FALSE;
+[; ;LineSensor.c: 39: bool isWhiteLine = FALSE;
 [e = _isWhiteLine -> . `E8056 0 `uc ]
-[; ;LineSensor.c: 42: if (lineSensor_read(1) < whiteLineThreshold) {isWhiteLine = TRUE;}
-"42
+[; ;LineSensor.c: 41: if (lineSensor_read(1) < whiteLineThreshold) {isWhiteLine = TRUE;}
+"41
 [e $ ! < ( _lineSensor_read (1 -> -> 1 `i `ui -> _whiteLineThreshold `i 1186  ]
 {
 [e = _isWhiteLine -> . `E8056 1 `uc ]
 }
 [e :U 1186 ]
-[; ;LineSensor.c: 44: return isWhiteLine;
-"44
+[; ;LineSensor.c: 43: return isWhiteLine;
+"43
 [e ) _isWhiteLine ]
 [e $UE 1185  ]
-[; ;LineSensor.c: 45: }
-"45
+[; ;LineSensor.c: 44: }
+"44
 [e :UE 1185 ]
 }

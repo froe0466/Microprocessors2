@@ -42,10 +42,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S468 . . . . . . . . . . ]
 "7822
 [v _LATAbits `VS468 ~T0 @X0 0 e@3977 ]
-"1443
-[v _T6CON `Vuc ~T0 @X0 0 e@3914 ]
-"1532
-[v _TMR6 `Vuc ~T0 @X0 0 e@3916 ]
+"16376
+[v _T1CON `Vuc ~T0 @X0 0 e@4045 ]
+"16513
+[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
+"16494
+[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
 "6374
 [s S401 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S401 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
@@ -93,6 +95,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S400 . . . . . . . . . . . . . . . ]
 "6455
 [v _PORTAbits `VS400 ~T0 @X0 0 e@3968 ]
+"9833
+[s S565 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S565 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
+"9842
+[s S566 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S566 . . SSPIF TXIF RCIF ]
+"9832
+[u S564 `S565 1 `S566 1 ]
+[n S564 . . . ]
+"9849
+[v _PIR1bits `VS564 ~T0 @X0 0 e@3998 ]
+"16382
+[s S1025 :2 `uc 1 :1 `uc 1 ]
+[n S1025 . . NOT_T1SYNC ]
+"16386
+[s S1026 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S1026 . TMR1ON T1RD16 nT1SYNC T1SOSCEN T1CKPS TMR1CS ]
+"16394
+[s S1027 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1027 . . RD16 T1SYNC T1OSCEN T1CKPS0 T1CKPS1 TMR1CS0 TMR1CS1 ]
+"16404
+[s S1028 :3 `uc 1 :1 `uc 1 ]
+[n S1028 . . SOSCEN ]
+"16381
+[u S1024 `S1025 1 `S1026 1 `S1027 1 `S1028 1 ]
+[n S1024 . . . . . ]
+"16409
+[v _T1CONbits `VS1024 ~T0 @X0 0 e@4045 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8384,44 +8414,97 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;SRF04.c: 5: void SRF04_Setup(){
 [e :U _SRF04_Setup ]
 [f ]
-[; ;SRF04.c: 7: TRISAbits.RA2 = 1;
+[; ;SRF04.c: 7: TRISAbits.RA2 = 0;
 "7
-[e = . . _TRISAbits 1 2 -> -> 1 `i `uc ]
-[; ;SRF04.c: 8: TRISAbits.RA3 = 0;
+[e = . . _TRISAbits 1 2 -> -> 0 `i `uc ]
+[; ;SRF04.c: 8: TRISAbits.RA3 = 1;
 "8
-[e = . . _TRISAbits 1 3 -> -> 0 `i `uc ]
-[; ;SRF04.c: 10: TRISAbits.RA4 = 1;
+[e = . . _TRISAbits 1 3 -> -> 1 `i `uc ]
+[; ;SRF04.c: 10: TRISAbits.RA4 = 0;
 "10
-[e = . . _TRISAbits 1 4 -> -> 1 `i `uc ]
-[; ;SRF04.c: 11: TRISAbits.RA5 = 0;
+[e = . . _TRISAbits 1 4 -> -> 0 `i `uc ]
+[; ;SRF04.c: 11: TRISAbits.RA5 = 1;
 "11
-[e = . . _TRISAbits 1 5 -> -> 0 `i `uc ]
+[e = . . _TRISAbits 1 5 -> -> 1 `i `uc ]
 [; ;SRF04.c: 13: LATAbits.LATA3 = 0;
 "13
 [e = . . _LATAbits 0 3 -> -> 0 `i `uc ]
-[; ;SRF04.c: 15: LATAbits.LATA5 = 0;
-"15
+[; ;SRF04.c: 14: LATAbits.LATA5 = 0;
+"14
 [e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
-[; ;SRF04.c: 17: T6CON = 0b00000000;
+[; ;SRF04.c: 17: T1CON = 0b00000000;
 "17
-[e = _T6CON -> -> 0 `i `uc ]
-[; ;SRF04.c: 19: }
-"19
+[e = _T1CON -> -> 0 `i `uc ]
+[; ;SRF04.c: 18: }
+"18
 [e :UE 1178 ]
 }
-"21
+"20
 [v _Send_Pulse `(v ~T0 @X0 1 ef ]
 {
-[; ;SRF04.c: 21: void Send_Pulse(void){
+[; ;SRF04.c: 20: void Send_Pulse(void){
 [e :U _Send_Pulse ]
 [f ]
-[; ;SRF04.c: 23: TMR6 = 255;
+[; ;SRF04.c: 22: TMR1H = 255;
+"22
+[e = _TMR1H -> -> 255 `i `uc ]
+[; ;SRF04.c: 23: TMR1L = 253;
 "23
-[e = _TMR6 -> -> 255 `i `uc ]
-[; ;SRF04.c: 24: PORTAbits.RA3 = 1;
-"24
-[e = . . _PORTAbits 0 3 -> -> 1 `i `uc ]
-[; ;SRF04.c: 26: }
-"26
+[e = _TMR1L -> -> 253 `i `uc ]
+[; ;SRF04.c: 25: PORTAbits.RA2 = 1;
+"25
+[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
+[; ;SRF04.c: 27: PIR1bits.TMR1IF = 0;
+"27
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+[; ;SRF04.c: 29: T1CONbits.TMR1ON = 1;
+"29
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+[; ;SRF04.c: 31: while(PIR1bits.TMR1IF == 0);
+"31
+[e $U 1180  ]
+[e :U 1181 ]
+[e :U 1180 ]
+[e $ == -> . . _PIR1bits 0 0 `i -> 0 `i 1181  ]
+[e :U 1182 ]
+[; ;SRF04.c: 33: T1CONbits.TMR1ON =0;
+"33
+[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
+[; ;SRF04.c: 34: PORTAbits.RA2 = 0;
+"34
+[e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
+[; ;SRF04.c: 36: TMR1H = 0;
+"36
+[e = _TMR1H -> -> 0 `i `uc ]
+[; ;SRF04.c: 37: TMR1L = 0;
+"37
+[e = _TMR1L -> -> 0 `i `uc ]
+[; ;SRF04.c: 38: }
+"38
 [e :UE 1179 ]
+}
+"40
+[v _Measure_Pulse `(v ~T0 @X0 1 ef ]
+"41
+{
+[; ;SRF04.c: 40: void Measure_Pulse(void)
+[; ;SRF04.c: 41: {
+[e :U _Measure_Pulse ]
+[f ]
+[; ;SRF04.c: 42: T1CONbits.TMR1ON = 1;
+"42
+[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
+[; ;SRF04.c: 43: while(PORTAbits.RA3 = 0);
+"43
+[e $U 1184  ]
+[e :U 1185 ]
+[e :U 1184 ]
+[e $ != -> = . . _PORTAbits 0 3 -> -> 0 `i `uc `i -> -> -> 0 `i `Vuc `i 1185  ]
+[e :U 1186 ]
+[; ;SRF04.c: 44: T1CONbits.TMR1ON = 0;
+"44
+[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
+[; ;SRF04.c: 46: }
+"46
+[e :UE 1183 ]
 }

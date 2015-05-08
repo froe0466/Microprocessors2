@@ -10511,7 +10511,14 @@ int lineSensor_read(unsigned int Channel);
 bool lineSensor_isWhiteLine1(void);
 bool lineSensor_isWhiteLine2(void);
 
-# 17 "../Driver.c"
+# 15 "../SRF04.h"
+void SRF04_Setup(void);
+void Send_Pulse(void);
+void Measure_Pulse(void);
+void SetTimer(void);
+void Wait4Timer(void);
+
+# 18 "../Driver.c"
 void main(void){
 
 
@@ -10541,44 +10548,22 @@ lineSensor_init();
 
 LCD_write("Start");
 
-Drive_Forward(100,45);
 
-Stop();
-
-Turn_Left(60);
-
-Stop();
-
-Turn_Right(60);
-
-
+int range =0;
 while(1)
 {
-char readResult = 0;
+Send_Pulse();
+while(PORTAbits.RA3 = 0);
+Measure_Pulse();
 
+range =((TMR1H << 8) + TMR1L) / 58;
 
-i2c_Command(0xE0,0x00,0x51);
-readResult = i2c_Read(0xE0,0x02);
+place_lcd_cursor(0,1);
+LCD_convertWrite(range);
 
+_delay((unsigned long)((50)*(10000000/4000.0)));
 
-if(readResult > 15)
-{
-place_lcd_cursor(8,1);
-LCD_writeChar('T');
-
-Drive_Forward(50,55);
-
-
-}
-else
-{
-place_lcd_cursor(8,1);
-LCD_writeChar('F');
-
-Turn_Left(55);
-}
-
-# 112
+# 113
 }
 
 }

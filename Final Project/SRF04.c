@@ -4,44 +4,43 @@
 
 void SRF04_Setup(){
 
-    TRISAbits.RA2 = 1;
-    TRISAbits.RA3 = 0;
+    TRISAbits.RA2 = 0;
+    TRISAbits.RA3 = 1;
 
-    TRISAbits.RA4 = 1;
-    TRISAbits.RA5 = 0;
+    TRISAbits.RA4 = 0;
+    TRISAbits.RA5 = 1;
 
     LATAbits.LATA3 = 0;
-
     LATAbits.LATA5 = 0;
 
-    T6CON = 0b00000000;
 
+    T1CON = 0b00000000;
 }
 
 void Send_Pulse(void){
 
-    //TMR6 = 255;
+    TMR1H = 255;
+    TMR1L = 253;
+
     PORTAbits.RA2 = 1;
 
-   // PIR5bits.TMR6IF = 0; //Clear Interrupt
+    PIR1bits.TMR1IF = 0; //Clear Interrupt
 
-   // T6CONbits.TMR6ON = 1; //Start Running TMR6
+    T1CONbits.TMR1ON = 1; //Start Running TMR6
 
-    //while(PIR5bits.TMR6IF == 0); //Wait for Interrupt
+    while(PIR1bits.TMR1IF == 0); //Wait for Interrupt
 
-    //T6CONbits.TMR6ON =0;
-
-    __delay_us(10);
-
+    T1CONbits.TMR1ON =0;
     PORTAbits.RA2 = 0;
 
-   // TMR6 = 0;    
+    TMR1H = 0;
+    TMR1L = 0;
 }
 
 void Measure_Pulse(void)
 {
-    T6CONbits.TMR6ON = 1; //Start Timer
-    while(PORTAbits.RA2 = 0);
-    T6CONbits.TMR6ON = 0; //Stop Timer
+    T1CONbits.TMR1ON = 1; //Start Timer
+    while(PORTAbits.RA3 = 0);
+    T1CONbits.TMR1ON = 0; //Stop Timer
 
 }

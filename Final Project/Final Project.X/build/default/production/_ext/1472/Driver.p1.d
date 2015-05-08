@@ -4,5 +4,6 @@
 ../i2c.h  \
 ../LineSensor.h  \
 ../DCMotor.h  \
+../SRF04.h  \
 ../LCD.h  \
 ../config.h 
