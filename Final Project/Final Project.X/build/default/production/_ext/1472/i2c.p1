@@ -8675,114 +8675,105 @@ Version 3.2 HI-TECH Software Intermediate Code
 "119
 [f ]
 "120
-[v _rangeInCm `uc ~T0 @X0 1 a ]
-[; ;i2c.c: 120: unsigned char rangeInCm = 0;
-[e = _rangeInCm -> -> 0 `i `uc ]
+[v _rangeInCm `ui ~T0 @X0 1 a ]
+[; ;i2c.c: 120: unsigned int rangeInCm = 0;
+[e = _rangeInCm -> -> 0 `i `ui ]
 "121
-[v _rangeInCm1 `uc ~T0 @X0 1 a ]
-[; ;i2c.c: 121: unsigned char rangeInCm1 = 0;
-[e = _rangeInCm1 -> -> 0 `i `uc ]
+[v _rangeInCm1 `ui ~T0 @X0 1 a ]
+[; ;i2c.c: 121: unsigned int rangeInCm1 = 0;
+[e = _rangeInCm1 -> -> 0 `i `ui ]
 "122
-[v _x `uc ~T0 @X0 1 a ]
-"123
 [v _range `ui ~T0 @X0 1 a ]
-[; ;i2c.c: 122: unsigned char x;
-[; ;i2c.c: 123: unsigned int range;
-[; ;i2c.c: 126: i2c_Start();
-"126
+[; ;i2c.c: 122: unsigned int range;
+[; ;i2c.c: 125: i2c_Start();
+"125
 [e ( _i2c_Start ..  ]
-[; ;i2c.c: 127: i2c_Write(deviceAddress);
-"127
+[; ;i2c.c: 126: i2c_Write(deviceAddress);
+"126
 [e ( _i2c_Write (1 _deviceAddress ]
-[; ;i2c.c: 128: i2c_Wait();
+[; ;i2c.c: 127: i2c_Wait();
+"127
+[e ( _i2c_Wait ..  ]
+[; ;i2c.c: 128: i2c_Write(reg);
 "128
-[e ( _i2c_Wait ..  ]
-[; ;i2c.c: 129: i2c_Write(reg);
-"129
 [e ( _i2c_Write (1 _reg ]
-[; ;i2c.c: 130: i2c_Restart();
-"130
+[; ;i2c.c: 129: i2c_Restart();
+"129
 [e ( _i2c_Restart ..  ]
-[; ;i2c.c: 131: i2c_Write(deviceAddress + 1);
-"131
+[; ;i2c.c: 130: i2c_Write(deviceAddress + 1);
+"130
 [e ( _i2c_Write (1 -> + -> _deviceAddress `i -> 1 `i `uc ]
-[; ;i2c.c: 132: i2c_Wait();
-"132
+[; ;i2c.c: 131: i2c_Wait();
+"131
 [e ( _i2c_Wait ..  ]
-[; ;i2c.c: 135: SSP2CON2bits.RCEN = 1;
+[; ;i2c.c: 134: SSP2CON2bits.RCEN = 1;
+"134
+[e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
+[; ;i2c.c: 135: i2c_Wait();
 "135
-[e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
-[; ;i2c.c: 136: i2c_Wait();
+[e ( _i2c_Wait ..  ]
+[; ;i2c.c: 136: rangeInCm = SSP2BUF;
 "136
-[e ( _i2c_Wait ..  ]
-[; ;i2c.c: 137: rangeInCm = SSP2BUF;
-"137
-[e = _rangeInCm _SSP2BUF ]
-[; ;i2c.c: 140: SSP2CON2bits.ACKDT = 0;
-"140
+[e = _rangeInCm -> _SSP2BUF `ui ]
+[; ;i2c.c: 139: SSP2CON2bits.ACKDT = 0;
+"139
 [e = . . _SSP2CON2bits 0 5 -> -> 0 `i `uc ]
-[; ;i2c.c: 141: SSP2CON2bits.ACKEN = 1;
-"141
+[; ;i2c.c: 140: SSP2CON2bits.ACKEN = 1;
+"140
 [e = . . _SSP2CON2bits 0 4 -> -> 1 `i `uc ]
-[; ;i2c.c: 143: i2c_Wait();
-"143
+[; ;i2c.c: 142: i2c_Wait();
+"142
 [e ( _i2c_Wait ..  ]
-[; ;i2c.c: 146: SSP2CON2bits.RCEN = 1;
-"146
+[; ;i2c.c: 145: SSP2CON2bits.RCEN = 1;
+"145
 [e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
-[; ;i2c.c: 147: i2c_Wait();
-"147
+[; ;i2c.c: 146: i2c_Wait();
+"146
 [e ( _i2c_Wait ..  ]
-[; ;i2c.c: 149: rangeInCm1 = SSP2BUF;
-"149
-[e = _rangeInCm1 _SSP2BUF ]
-[; ;i2c.c: 152: SSP2CON2bits.ACKDT = 1;
-"152
+[; ;i2c.c: 148: rangeInCm1 = SSP2BUF;
+"148
+[e = _rangeInCm1 -> _SSP2BUF `ui ]
+[; ;i2c.c: 151: SSP2CON2bits.ACKDT = 1;
+"151
 [e = . . _SSP2CON2bits 0 5 -> -> 1 `i `uc ]
-[; ;i2c.c: 153: SSP2CON2bits.ACKEN = 1;
-"153
+[; ;i2c.c: 152: SSP2CON2bits.ACKEN = 1;
+"152
 [e = . . _SSP2CON2bits 0 4 -> -> 1 `i `uc ]
-[; ;i2c.c: 155: i2c_Wait();
-"155
+[; ;i2c.c: 154: i2c_Wait();
+"154
 [e ( _i2c_Wait ..  ]
-[; ;i2c.c: 156: i2c_Stop();
-"156
+[; ;i2c.c: 155: i2c_Stop();
+"155
 [e ( _i2c_Stop ..  ]
-[; ;i2c.c: 158: range = rangeInCm<<8;
+[; ;i2c.c: 157: range = rangeInCm<<8;
+"157
+[e = _range << _rangeInCm -> 8 `i ]
+[; ;i2c.c: 158: range = range + rangeInCm1;
 "158
-[e = _range -> << -> _rangeInCm `i -> 8 `i `ui ]
-[; ;i2c.c: 159: range = range + rangeInCm1;
-"159
-[e = _range + _range -> _rangeInCm1 `ui ]
-[; ;i2c.c: 162: place_lcd_cursor(0,1);
-"162
+[e = _range + _range _rangeInCm1 ]
+[; ;i2c.c: 161: place_lcd_cursor(0,1);
+"161
 [e ( _place_lcd_cursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;i2c.c: 163: LCD_writeChar((range / 100) + 0x30);
-"163
+[; ;i2c.c: 162: LCD_writeChar((range / 100) + 0x30);
+"162
 [e ( _LCD_writeChar (1 -> + / _range -> -> 100 `i `ui -> -> 48 `i `ui `uc ]
-[; ;i2c.c: 164: place_lcd_cursor(1,1);
-"164
+[; ;i2c.c: 163: place_lcd_cursor(1,1);
+"163
 [e ( _place_lcd_cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-[; ;i2c.c: 165: LCD_writeChar(((range % 100) / 10) + 0x30);
-"165
+[; ;i2c.c: 164: LCD_writeChar(((range % 100) / 10) + 0x30);
+"164
 [e ( _LCD_writeChar (1 -> + / % _range -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;i2c.c: 166: place_lcd_cursor(2,1);
-"166
+[; ;i2c.c: 165: place_lcd_cursor(2,1);
+"165
 [e ( _place_lcd_cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-[; ;i2c.c: 167: LCD_writeChar(((range % 100) % 10) + 0x30);
-"167
+[; ;i2c.c: 166: LCD_writeChar(((range % 100) % 10) + 0x30);
+"166
 [e ( _LCD_writeChar (1 -> + % % _range -> -> 100 `i `ui -> -> 10 `i `ui -> -> 48 `i `ui `uc ]
-[; ;i2c.c: 169: return rangeInCm;
-"169
-[e ) _rangeInCm ]
+[; ;i2c.c: 168: return range;
+"168
+[e ) -> _range `uc ]
 [e $UE 1198  ]
-[; ;i2c.c: 171: _delay((unsigned long)((50)*(10000000/4000.0)));
-"171
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-[; ;i2c.c: 172: _delay((unsigned long)((50)*(10000000/4000.0)));
-"172
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-[; ;i2c.c: 174: }
-"174
+[; ;i2c.c: 169: }
+"169
 [e :UE 1198 ]
 }

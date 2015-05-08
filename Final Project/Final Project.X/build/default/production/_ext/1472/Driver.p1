@@ -26,6 +26,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCD_write `(v ~T0 @X0 0 ef1`*uc ]
 "27 ../DCMotor.h
 [v _Drive_Forward `(v ~T0 @X0 0 ef2`uc`i ]
+"29
+[v _Turn_Left `(v ~T0 @X0 0 ef1`uc ]
+"30
+[v _Turn_Right `(v ~T0 @X0 0 ef1`uc ]
+"22 ../i2c.h
+[v _i2c_Command `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"23
+[v _i2c_Read `(uc ~T0 @X0 0 ef2`uc`uc ]
+"22 ../LCD.h
+[v _LCD_writeChar `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8381,24 +8391,84 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Driver.c: 44: LCD_write("Start");
 "44
 [e ( _LCD_write (1 -> :s 1C `*uc ]
-[; ;Driver.c: 46: Drive_Forward(500,45);
+[; ;Driver.c: 46: Drive_Forward(100,45);
 "46
-[e ( _Drive_Forward (2 , -> -> 500 `i `uc -> 45 `i ]
-[; ;Driver.c: 50: while(1)
+[e ( _Drive_Forward (2 , -> -> 100 `i `uc -> 45 `i ]
+[; ;Driver.c: 48: Stop();
+"48
+[e ( _Stop ..  ]
+[; ;Driver.c: 50: Turn_Left(60);
 "50
+[e ( _Turn_Left (1 -> -> 60 `i `uc ]
+[; ;Driver.c: 52: Stop();
+"52
+[e ( _Stop ..  ]
+[; ;Driver.c: 54: Turn_Right(60);
+"54
+[e ( _Turn_Right (1 -> -> 60 `i `uc ]
+[; ;Driver.c: 57: while(1)
+"57
 [e :U 1180 ]
-[; ;Driver.c: 51: {
-"51
+[; ;Driver.c: 58: {
+"58
 {
-"84
+"59
+[v _readResult `uc ~T0 @X0 1 a ]
+[; ;Driver.c: 59: char readResult = 0;
+[e = _readResult -> -> 0 `i `uc ]
+[; ;Driver.c: 62: i2c_Command(0xE0,0x00,0x51);
+"62
+[e ( _i2c_Command (3 , , -> -> 224 `i `uc -> -> 0 `i `uc -> -> 81 `i `uc ]
+[; ;Driver.c: 63: readResult = i2c_Read(0xE0,0x02);
+"63
+[e = _readResult ( _i2c_Read (2 , -> -> 224 `i `uc -> -> 2 `i `uc ]
+[; ;Driver.c: 66: if(readResult > 15)
+"66
+[e $ ! > -> _readResult `i -> 15 `i 1182  ]
+[; ;Driver.c: 67: {
+"67
+{
+[; ;Driver.c: 68: place_lcd_cursor(8,1);
+"68
+[e ( _place_lcd_cursor (2 , -> -> 8 `i `uc -> -> 1 `i `uc ]
+[; ;Driver.c: 69: LCD_writeChar('T');
+"69
+[e ( _LCD_writeChar (1 -> -> 84 `ui `uc ]
+[; ;Driver.c: 71: Drive_Forward(50,55);
+"71
+[e ( _Drive_Forward (2 , -> -> 50 `i `uc -> 55 `i ]
+"74
+}
+[; ;Driver.c: 74: }
+[e $U 1183  ]
+"75
+[e :U 1182 ]
+[; ;Driver.c: 75: else
+[; ;Driver.c: 76: {
+"76
+{
+[; ;Driver.c: 77: place_lcd_cursor(8,1);
+"77
+[e ( _place_lcd_cursor (2 , -> -> 8 `i `uc -> -> 1 `i `uc ]
+[; ;Driver.c: 78: LCD_writeChar('F');
+"78
+[e ( _LCD_writeChar (1 -> -> 70 `ui `uc ]
+[; ;Driver.c: 80: Turn_Left(55);
+"80
+[e ( _Turn_Left (1 -> -> 55 `i `uc ]
+"81
+}
+[e :U 1183 ]
+"112
 }
 [e :U 1179 ]
-"50
+"57
 [e $U 1180  ]
 [e :U 1181 ]
-[; ;Driver.c: 84: }
-[; ;Driver.c: 86: }
-"86
+[; ;Driver.c: 81: }
+[; ;Driver.c: 112: }
+[; ;Driver.c: 114: }
+"114
 [e :UE 1178 ]
 }
 [a 1C 83 116 97 114 116 0 ]

@@ -8768,166 +8768,221 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DCMotor.c: 177: CCP3CON = 0b11001100;
 "177
 [e = _CCP3CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 179: EPWM1_LoadDutyValue(speed);
+[; ;DCMotor.c: 179: EPWM1_LoadDutyValue(00);
 "179
-[e ( _EPWM1_LoadDutyValue (1 -> _speed `i ]
-[; ;DCMotor.c: 180: EPWM2_LoadDutyValue(00);
+[e ( _EPWM1_LoadDutyValue (1 -> 0 `i ]
+[; ;DCMotor.c: 180: EPWM2_LoadDutyValue(speed);
 "180
-[e ( _EPWM2_LoadDutyValue (1 -> 0 `i ]
-[; ;DCMotor.c: 181: }
-"181
+[e ( _EPWM2_LoadDutyValue (1 -> _speed `i ]
+[; ;DCMotor.c: 182: for(int i =0; i<50; i++)
+"182
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 50 `i 1188  ]
+[e $U 1189  ]
+"183
+[e :U 1188 ]
+[; ;DCMotor.c: 183: {
+{
+[; ;DCMotor.c: 184: _delay((unsigned long)((10)*(10000000/4000.0)));
+"184
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"185
+}
+"182
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 50 `i 1188  ]
+[e :U 1189 ]
+"185
+}
+[; ;DCMotor.c: 185: }
+[; ;DCMotor.c: 186: Stop();
+"186
+[e ( _Stop ..  ]
+[; ;DCMotor.c: 188: Stop();
+"188
+[e ( _Stop ..  ]
+[; ;DCMotor.c: 189: }
+"189
 [e :UE 1187 ]
 }
-"183
+"191
 [v _Turn_Left `(v ~T0 @X0 1 ef1`uc ]
-"184
+"192
 {
-[; ;DCMotor.c: 183: void Turn_Left(unsigned char speed)
-[; ;DCMotor.c: 184: {
+[; ;DCMotor.c: 191: void Turn_Left(unsigned char speed)
+[; ;DCMotor.c: 192: {
 [e :U _Turn_Left ]
-"183
+"191
 [v _speed `uc ~T0 @X0 1 r1 ]
-"184
+"192
 [f ]
-[; ;DCMotor.c: 185: CCP2CON = 0b11001100;
-"185
+[; ;DCMotor.c: 193: CCP2CON = 0b11001100;
+"193
 [e = _CCP2CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 186: CCP3CON = 0b11001100;
-"186
-[e = _CCP3CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 188: EPWM1_LoadDutyValue(speed);
-"188
-[e ( _EPWM1_LoadDutyValue (1 -> _speed `i ]
-[; ;DCMotor.c: 189: EPWM2_LoadDutyValue(45);
-"189
-[e ( _EPWM2_LoadDutyValue (1 -> 45 `i ]
-[; ;DCMotor.c: 190: }
-"190
-[e :UE 1188 ]
-}
-"192
-[v _Drive_Forward `(v ~T0 @X0 1 ef2`uc`i ]
-"193
-{
-[; ;DCMotor.c: 192: void Drive_Forward(unsigned char distance, int speed)
-[; ;DCMotor.c: 193: {
-[e :U _Drive_Forward ]
-"192
-[v _distance `uc ~T0 @X0 1 r1 ]
-[v _speed `i ~T0 @X0 1 r2 ]
-"193
-[f ]
-[; ;DCMotor.c: 194: CCP2CON = 0b11001100;
+[; ;DCMotor.c: 194: CCP3CON = 0b11001100;
 "194
-[e = _CCP2CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 195: CCP3CON = 0b11001100;
-"195
 [e = _CCP3CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 197: while(distance > 0)
+[; ;DCMotor.c: 196: EPWM1_LoadDutyValue(speed);
+"196
+[e ( _EPWM1_LoadDutyValue (1 -> _speed `i ]
+[; ;DCMotor.c: 197: EPWM2_LoadDutyValue(00);
 "197
-[e $U 1190  ]
-[e :U 1191 ]
-[; ;DCMotor.c: 198: {
-"198
-{
-[; ;DCMotor.c: 199: EPWM1_LoadDutyValue(speed);
+[e ( _EPWM2_LoadDutyValue (1 -> 0 `i ]
+[; ;DCMotor.c: 199: for(int i =0; i<150; i++)
 "199
-[e ( _EPWM1_LoadDutyValue (1 _speed ]
-[; ;DCMotor.c: 200: EPWM2_LoadDutyValue(speed);
-"200
-[e ( _EPWM2_LoadDutyValue (1 _speed ]
-[; ;DCMotor.c: 202: _delay((unsigned long)((10)*(10000000/4000.0)));
-"202
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-[; ;DCMotor.c: 203: distance--;
-"203
-[e -- _distance -> -> 1 `i `uc ]
-"204
-}
-[e :U 1190 ]
-"197
-[e $ > -> _distance `i -> 0 `i 1191  ]
-[e :U 1192 ]
-[; ;DCMotor.c: 204: }
-[; ;DCMotor.c: 205: Stop();
-"205
-[e ( _Stop ..  ]
-[; ;DCMotor.c: 206: }
-"206
-[e :UE 1189 ]
-}
-"208
-[v _Drive_Reverse `(v ~T0 @X0 1 ef2`uc`i ]
-"209
 {
-[; ;DCMotor.c: 208: void Drive_Reverse(unsigned char distance, int speed)
-[; ;DCMotor.c: 209: {
-[e :U _Drive_Reverse ]
-"208
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 150 `i 1192  ]
+[e $U 1193  ]
+"200
+[e :U 1192 ]
+[; ;DCMotor.c: 200: {
+{
+[; ;DCMotor.c: 201: _delay((unsigned long)((10)*(10000000/4000.0)));
+"201
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"202
+}
+"199
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 150 `i 1192  ]
+[e :U 1193 ]
+"202
+}
+[; ;DCMotor.c: 202: }
+[; ;DCMotor.c: 203: Stop();
+"203
+[e ( _Stop ..  ]
+[; ;DCMotor.c: 204: }
+"204
+[e :UE 1191 ]
+}
+"206
+[v _Drive_Forward `(v ~T0 @X0 1 ef2`uc`i ]
+"207
+{
+[; ;DCMotor.c: 206: void Drive_Forward(unsigned char distance, int speed)
+[; ;DCMotor.c: 207: {
+[e :U _Drive_Forward ]
+"206
 [v _distance `uc ~T0 @X0 1 r1 ]
 [v _speed `i ~T0 @X0 1 r2 ]
-"209
+"207
 [f ]
-[; ;DCMotor.c: 210: CCP2CON = 0b01001100;
-"210
-[e = _CCP2CON -> -> 76 `i `uc ]
-[; ;DCMotor.c: 211: CCP3CON = 0b01001100;
+[; ;DCMotor.c: 208: CCP2CON = 0b11001100;
+"208
+[e = _CCP2CON -> -> 204 `i `uc ]
+[; ;DCMotor.c: 209: CCP3CON = 0b11001100;
+"209
+[e = _CCP3CON -> -> 204 `i `uc ]
+[; ;DCMotor.c: 211: while(distance > 0)
 "211
-[e = _CCP3CON -> -> 76 `i `uc ]
-[; ;DCMotor.c: 213: while(distance > 0)
-"213
-[e $U 1194  ]
-[e :U 1195 ]
-[; ;DCMotor.c: 214: {
-"214
+[e $U 1196  ]
+[e :U 1197 ]
+[; ;DCMotor.c: 212: {
+"212
 {
-[; ;DCMotor.c: 215: EPWM1_LoadDutyValue(speed);
-"215
+[; ;DCMotor.c: 213: EPWM1_LoadDutyValue(speed);
+"213
 [e ( _EPWM1_LoadDutyValue (1 _speed ]
-[; ;DCMotor.c: 216: EPWM2_LoadDutyValue(speed);
-"216
+[; ;DCMotor.c: 214: EPWM2_LoadDutyValue(speed);
+"214
 [e ( _EPWM2_LoadDutyValue (1 _speed ]
-[; ;DCMotor.c: 218: _delay((unsigned long)((10)*(10000000/4000.0)));
-"218
+[; ;DCMotor.c: 216: _delay((unsigned long)((10)*(10000000/4000.0)));
+"216
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-[; ;DCMotor.c: 219: distance--;
-"219
+[; ;DCMotor.c: 217: distance--;
+"217
 [e -- _distance -> -> 1 `i `uc ]
-"220
+"218
 }
-[e :U 1194 ]
-"213
-[e $ > -> _distance `i -> 0 `i 1195  ]
 [e :U 1196 ]
-[; ;DCMotor.c: 220: }
-[; ;DCMotor.c: 221: Stop();
-"221
+"211
+[e $ > -> _distance `i -> 0 `i 1197  ]
+[e :U 1198 ]
+[; ;DCMotor.c: 218: }
+[; ;DCMotor.c: 219: Stop();
+"219
 [e ( _Stop ..  ]
-[; ;DCMotor.c: 222: }
-"222
-[e :UE 1193 ]
+[; ;DCMotor.c: 220: }
+"220
+[e :UE 1195 ]
 }
-"224
-[v _Stop `(v ~T0 @X0 1 ef ]
-"225
+"222
+[v _Drive_Reverse `(v ~T0 @X0 1 ef2`uc`i ]
+"223
 {
-[; ;DCMotor.c: 224: void Stop()
-[; ;DCMotor.c: 225: {
+[; ;DCMotor.c: 222: void Drive_Reverse(unsigned char distance, int speed)
+[; ;DCMotor.c: 223: {
+[e :U _Drive_Reverse ]
+"222
+[v _distance `uc ~T0 @X0 1 r1 ]
+[v _speed `i ~T0 @X0 1 r2 ]
+"223
+[f ]
+[; ;DCMotor.c: 224: CCP2CON = 0b01001100;
+"224
+[e = _CCP2CON -> -> 76 `i `uc ]
+[; ;DCMotor.c: 225: CCP3CON = 0b01001100;
+"225
+[e = _CCP3CON -> -> 76 `i `uc ]
+[; ;DCMotor.c: 227: while(distance > 0)
+"227
+[e $U 1200  ]
+[e :U 1201 ]
+[; ;DCMotor.c: 228: {
+"228
+{
+[; ;DCMotor.c: 229: EPWM1_LoadDutyValue(speed);
+"229
+[e ( _EPWM1_LoadDutyValue (1 _speed ]
+[; ;DCMotor.c: 230: EPWM2_LoadDutyValue(speed);
+"230
+[e ( _EPWM2_LoadDutyValue (1 _speed ]
+[; ;DCMotor.c: 232: _delay((unsigned long)((10)*(10000000/4000.0)));
+"232
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+[; ;DCMotor.c: 233: distance--;
+"233
+[e -- _distance -> -> 1 `i `uc ]
+"234
+}
+[e :U 1200 ]
+"227
+[e $ > -> _distance `i -> 0 `i 1201  ]
+[e :U 1202 ]
+[; ;DCMotor.c: 234: }
+[; ;DCMotor.c: 235: Stop();
+"235
+[e ( _Stop ..  ]
+[; ;DCMotor.c: 236: }
+"236
+[e :UE 1199 ]
+}
+"238
+[v _Stop `(v ~T0 @X0 1 ef ]
+"239
+{
+[; ;DCMotor.c: 238: void Stop()
+[; ;DCMotor.c: 239: {
 [e :U _Stop ]
 [f ]
-[; ;DCMotor.c: 228: CCP2CON = 0b11001100;
-"228
+[; ;DCMotor.c: 242: CCP2CON = 0b11001100;
+"242
 [e = _CCP2CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 229: CCP3CON = 0b11001100;
-"229
+[; ;DCMotor.c: 243: CCP3CON = 0b11001100;
+"243
 [e = _CCP3CON -> -> 204 `i `uc ]
-[; ;DCMotor.c: 231: EPWM1_LoadDutyValue(00);
-"231
+[; ;DCMotor.c: 245: EPWM1_LoadDutyValue(00);
+"245
 [e ( _EPWM1_LoadDutyValue (1 -> 0 `i ]
-[; ;DCMotor.c: 232: EPWM2_LoadDutyValue(00);
-"232
+[; ;DCMotor.c: 246: EPWM2_LoadDutyValue(00);
+"246
 [e ( _EPWM2_LoadDutyValue (1 -> 0 `i ]
-[; ;DCMotor.c: 234: }
-"234
-[e :UE 1197 ]
+[; ;DCMotor.c: 248: }
+"248
+[e :UE 1203 ]
 }

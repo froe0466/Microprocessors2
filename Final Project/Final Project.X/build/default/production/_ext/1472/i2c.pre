@@ -10570,9 +10570,8 @@ _delay((unsigned long)((50)*(10000000/4000.0)));
 
 char i2c_Read(unsigned char deviceAddress, unsigned char reg)
 {
-unsigned char rangeInCm = 0;
-unsigned char rangeInCm1 = 0;
-unsigned char x;
+unsigned int rangeInCm = 0;
+unsigned int rangeInCm1 = 0;
 unsigned int range;
 
 
@@ -10619,9 +10618,5 @@ LCD_writeChar(((range % 100) / 10) + 0x30);
 place_lcd_cursor(2,1);
 LCD_writeChar(((range % 100) % 10) + 0x30);
 
-return rangeInCm;
-
-_delay((unsigned long)((50)*(10000000/4000.0)));
-_delay((unsigned long)((50)*(10000000/4000.0)));
-
+return range;
 }

@@ -176,8 +176,16 @@ void Turn_Right(unsigned char speed)
     CCP2CON = 0b11001100;
     CCP3CON = 0b11001100;
     
-    EPWM1_LoadDutyValue(speed);
-    EPWM2_LoadDutyValue(00);
+    EPWM1_LoadDutyValue(00);
+    EPWM2_LoadDutyValue(speed);
+
+    for(int i =0; i<50; i++)
+    {
+        __delay_ms(10);
+    }
+    Stop(); 
+
+    Stop();
 }
 
 void Turn_Left(unsigned char speed)
@@ -186,7 +194,13 @@ void Turn_Left(unsigned char speed)
     CCP3CON = 0b11001100;
 
     EPWM1_LoadDutyValue(speed);
-    EPWM2_LoadDutyValue(45);
+    EPWM2_LoadDutyValue(00);
+
+    for(int i =0; i<150; i++)
+    {
+        __delay_ms(10);
+    }
+    Stop(); 
 }
 
 void Drive_Forward(unsigned char distance, int speed)

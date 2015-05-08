@@ -117,9 +117,8 @@ void i2c_Port_Init (void) {
 
  char i2c_Read(unsigned char deviceAddress, unsigned char reg)
  {
-    unsigned char rangeInCm = 0;
-    unsigned char rangeInCm1 = 0;
-    unsigned char x;
+    unsigned int rangeInCm = 0;
+    unsigned int rangeInCm1 = 0;
     unsigned int range;
 
     //Send Read Command & Store in char array
@@ -166,9 +165,5 @@ void i2c_Port_Init (void) {
     place_lcd_cursor(2,1);
     LCD_writeChar(((range % 100) % 10) + 0x30); //this is the routine for the third decimal place
 
-    return rangeInCm; //THIS VALUE SHOULD BE IN CM - IT CURRENTLY IS WRONG!!!!
-
-    __delay_ms(50);
-    __delay_ms(50); ///CHANGED FROM 50 - TEST
-    //Removed delays - test to make sure it still works.
+    return range; //THIS VALUE SHOULD BE IN CM - IT CURRENTLY IS WRONG!!!!
 }

@@ -10541,14 +10541,44 @@ lineSensor_init();
 
 LCD_write("Start");
 
-Drive_Forward(500,45);
+Drive_Forward(100,45);
 
+Stop();
+
+Turn_Left(60);
+
+Stop();
+
+Turn_Right(60);
 
 
 while(1)
 {
+char readResult = 0;
 
-# 84
+
+i2c_Command(0xE0,0x00,0x51);
+readResult = i2c_Read(0xE0,0x02);
+
+
+if(readResult > 15)
+{
+place_lcd_cursor(8,1);
+LCD_writeChar('T');
+
+Drive_Forward(50,55);
+
+
+}
+else
+{
+place_lcd_cursor(8,1);
+LCD_writeChar('F');
+
+Turn_Left(55);
+}
+
+# 112
 }
 
 }
